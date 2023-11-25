@@ -5,7 +5,7 @@
 // ����� ����������� ��������� ������������ //
 //////////////////////////////////////////////
 
-class UI_Ability_Description : public B
+class UI_Ability_Description : public System
 {
 	
 public:
@@ -19,7 +19,7 @@ public:
 
 	virtual void setParam(v2f pos, sf::String str)
 	{
-		ConstructText(text, v2f(0, (37*scr_1)), 1.75, str, font_freshman, CLR::Yellow);
+		ConstructText(text, v2f(0, (37*scr_1)), 1.75, str, font_freshman, sf::Color::Yellow);
 		ConstructShape(shape, v2f(0, (37*scr_1)), (v2f(text.getGlobalBounds().width+(scr_1*2), text.getGlobalBounds().height+(scr_1*2))/scr_1), texture->UI_Bar, false);
 		shape.move(0, -shape.getSize().y/2);
 		text.setPosition(shape.getPosition());
@@ -38,7 +38,7 @@ public:
 // ���������� "��������" //
 ////////////////////////////
 
-class Effect_Upgrade_Star : public B
+class Effect_Upgrade_Star : public System
 {
 private:
 
@@ -60,7 +60,7 @@ public:
 		timer -= time;
 		if(timer < 0) timer = 0;
 		shape.move(cos(alpha), (-0.05*time)*scr_1);
-		shape.setFillColor(CLR(255,255,255, 255*(timer/TIMER)));
+		shape.setFillColor(sf::Color(255,255,255, 255*(timer/TIMER)));
 		shape.rotate(0.05*time);
 	}
 
@@ -80,7 +80,7 @@ public:
 // ����������� ����� ���������� ������������ //
 ///////////////////////////////////////////////
 
-class oUI_Ability : public B
+class oUI_Ability : public System
 {
 protected:
 
@@ -112,11 +112,11 @@ protected:
 
 	virtual void setHotKey(string key)
 	{
-		ConstructText(text_hotkey, shpIco.getPosition()+(v2f(2,4)*scr_1), 2, "Key " + key, font_freshman, CLR::Yellow); 
+		ConstructText(text_hotkey, shpIco.getPosition()+(v2f(2,4)*scr_1), 2, "Key " + key, font_freshman, sf::Color::Yellow); 
 		ConstructShape(shpUpgrade, shpIco.getPosition(), v2f(7,7), texture->UI_Button_Upgrade, false);
-		shpUpgrade.setFillColor(CLR::Transparent);
-		ConstructText(text_level, shpIco.getPosition()+((v2f(-2, -4))*scr_1),2, "lvl "+to_string(level), font_freshman, CLR::Yellow);
-		shpPlato.setFillColor(CLR(255,255,255,125));
+		shpUpgrade.setFillColor(sf::Color::Transparent);
+		ConstructText(text_level, shpIco.getPosition()+((v2f(-2, -4))*scr_1),2, "lvl "+to_string(level), font_freshman, sf::Color::Yellow);
+		shpPlato.setFillColor(sf::Color(255,255,255,125));
 	}
 
 	bool isCheked;
@@ -129,7 +129,7 @@ public:
 		DURATION_START = 0;
 		duration = 0; 
 		duration_plus = 0;
-		shpBonus.setFillColor(CLR(255,255,255,200));
+		shpBonus.setFillColor(sf::Color(255,255,255,200));
 	}
 
 	virtual int GetLevelNeed()
@@ -215,11 +215,11 @@ public:
 		std::string str;
 		for(int i = 0; i < 4; i++) str.push_back(to_string(duration/1000)[i]);
 
-		ConstructText(text_time, v2f(shpIco.getPosition().x, shpIco.getPosition().y - (7.f*scr_1)), 2.0, str, font_freshman, CLR::White);
+		ConstructText(text_time, v2f(shpIco.getPosition().x, shpIco.getPosition().y - (7.f*scr_1)), 2.0, str, font_freshman, sf::Color::White);
 		shpPlato.rotate(0.03*time);
 
 		alpha += time*0.003f;
-		shpUpgrade.setFillColor(CLR( 255, 255, 255, abs(cos(alpha)) * 150 ));
+		shpUpgrade.setFillColor(sf::Color( 255, 255, 255, abs(cos(alpha)) * 150 ));
 	}
 
 	virtual bool isEnd() 
@@ -262,7 +262,7 @@ public:
 	{ 
 		level++; 
 		upgp--; 
-		ConstructText(text_level, shpIco.getPosition()+((v2f(-2, -4))*scr_1),2, "lvl "+ to_string(level), font_freshman, CLR::Yellow);
+		ConstructText(text_level, shpIco.getPosition()+((v2f(-2, -4))*scr_1),2, "lvl "+ to_string(level), font_freshman, sf::Color::Yellow);
 	}
 
 	virtual void Check() {}
@@ -986,17 +986,17 @@ public:
 		ConstructShape(shpPlato, pos, v2f(10,10), texture->Bonus_Plato);
 
 		ConstructShape(shpTurret, cur_p, v2f(5,3), texture->Defender_Turret, false);
-		ConstructText(text_Charges, shpIco.getPosition(), 3, to_string(charges), font_freshman, CLR::Cyan);
-		shpTurret.setFillColor(CLR(255,255,255,200));
+		ConstructText(text_Charges, shpIco.getPosition(), 3, to_string(charges), font_freshman, sf::Color::Cyan);
+		shpTurret.setFillColor(sf::Color(255,255,255,200));
 		ConstructShape(shpWheel, cur_p, v2f(4,4), texture->Defender_Wheel, false);
-		shpWheel.setFillColor(CLR(255,255,255,200));
+		shpWheel.setFillColor(sf::Color(255,255,255,200));
 		for(int i = 0; i < 4; i++)
 		{
 			ConstructShape(shpInstaller_A[i], GetNormalizedPosition(cam_p, 30, i*90), v2f(6,6), texture->Turret_Installer);
 			ConstructShape(shpInstaller_B[i], GetNormalizedPosition(cam_p, 30, i*90), v2f(6,6), texture->Turret_Installer);
 			shpInstaller_B[i].setScale(-1,0);
 		}
-		ConstructText(text_Error_Install, v2f(0,0), 3, "Unable to install here...", font_freshman, CLR(255,0,0,255));
+		ConstructText(text_Error_Install, v2f(0,0), 3, "Unable to install here...", font_freshman, sf::Color(255,0,0,255));
 		setHotKey("C");
 	}
 
@@ -1012,7 +1012,7 @@ public:
 			isCheked = true; 
 			duration += ( DURATION_START + ( level * duration_plus ) ); 
 			charges++;
-			ConstructText(text_Charges, shpIco.getPosition(), 3, to_string(charges), font_freshman, CLR::Cyan);
+			ConstructText(text_Charges, shpIco.getPosition(), 3, to_string(charges), font_freshman, sf::Color::Cyan);
 		}
 	}
 
@@ -1025,7 +1025,7 @@ public:
 	virtual void Run() 
 	{
 		charges = 0;
-		ConstructText(text_Charges, shpIco.getPosition(), 3, to_string(charges), font_freshman, CLR::Cyan);
+		ConstructText(text_Charges, shpIco.getPosition(), 3, to_string(charges), font_freshman, sf::Color::Cyan);
 		duration = 0;
 		shpBonus.setTexture(&texture->Bonus_Turret_Defender[0]);
 	}
@@ -1043,8 +1043,8 @@ public:
 		wnd->draw(text_hotkey);	
 		wnd->draw(text_level);
 		wnd->draw(text_Charges);
-		shpTurret.setFillColor(CLR(255,255,255,abs(cos(alpha)*200)));
-		shpWheel.setFillColor(CLR(255,255,255,abs(cos(alpha)*200)));
+		shpTurret.setFillColor(sf::Color(255,255,255,abs(cos(alpha)*200)));
+		shpWheel.setFillColor(sf::Color(255,255,255,abs(cos(alpha)*200)));
 		if(isShowDescript) description.Draw();
 	}
 
@@ -1073,7 +1073,7 @@ public:
 		shpTurret.setPosition(cur_p);
 		shpWheel.setPosition(cur_p);
 		timer_text -= time;
-		text_Error_Install.setColor(CLR(255,0,0,255*(timer_text/3000)));
+		text_Error_Install.setColor(sf::Color(255,0,0,255*(timer_text/3000)));
 		text_Error_Install.setPosition(GetNormalizedPosition(cam_p, 30*scr_1, cam.getRotation()-90));
 		text_Error_Install.setRotation(cam.getRotation());
 		if(timer_text > 0) wnd->draw(text_Error_Install);

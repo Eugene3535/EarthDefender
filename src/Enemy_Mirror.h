@@ -12,7 +12,7 @@ protected:
 
 public:
 
-	Enemy_Mirror(v2f pos, v2f siz, float speed, uint hp, uint lvl, IMG & img, string name, float timer_reset_position) 
+	Enemy_Mirror(v2f pos, v2f siz, float speed, uint hp, uint lvl, sf::Texture& img, string name, float timer_reset_position) 
 		: oEnemy(pos, siz, speed, hp, lvl, img, name), 
 		TIMER_RESET_POSITION(timer_reset_position), timer_reset_position(timer_reset_position),
 		dir_rot(rand()%2)
@@ -34,7 +34,7 @@ public:
 			if(dir_rot) a += 10;
 			else a -= 10;
 			shape.setPosition(GetNormalizedPosition(v2f(0,0), GetDistance(shape, v2f(0,0)), a));
-			shape.setFillColor(CLR(255,255,255,255));
+			shape.setFillColor(sf::Color(255,255,255,255));
 			angle = a + 180;
 			shape.setRotation(angle);
 			timer_reset_position = TIMER_RESET_POSITION;

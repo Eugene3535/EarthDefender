@@ -1,42 +1,40 @@
 #include "System.h"
-// ��������� ���� ������� ����� ������� ���� �������
-// ����� ����� ����� 3 + (tank.level / 4);
 
-SettingsConfig			B::settings_config;
-sf::RenderWindow*		B::wnd;
-sf::Clock				B::clock;
-sf::Event				B::event;
-sf::View				B::cam;
-sf::Font*				B::font_freshman;
-float					B::time;
-float					B::time_in_pause;
-float					B::time_enemy;
-int						B::scr_W;
-int						B::scr_H;
-float					B::scr_1;
-float					B::scr_1w;
-v2f						B::cam_p;
-v2f						B::cur_p;
-v2f						B::planet_p;
-Texture*				B::texture;
-Audio*					B::audio;
-enum B::GSTATE			B::gState;
-bool					B::isPauseGame;
-bool					B::isSound_Music_On;
-bool					B::isSound_Effects_On;
-bool					B::isVideo_Smoth_On;
-bool					B::isVideo_VertSync_On;
-bool					B::isLanguageRU;
-uint					B::sound_Vol_Music;
-uint					B::sound_Vol_Effects;
-Shape					B::SCursor;
+SettingsConfig			System::settings_config;
+sf::RenderWindow*		System::wnd;
+sf::Clock				System::clock;
+sf::Event				System::event;
+sf::View				System::cam;
+sf::Font*				System::font_freshman;
+float					System::time;
+float					System::time_in_pause;
+float					System::time_enemy;
+int						System::scr_W;
+int						System::scr_H;
+float					System::scr_1;
+float					System::scr_1w;
+v2f						System::cam_p;
+v2f						System::cur_p;
+v2f						System::planet_p;
+Texture*				System::texture;
+Audio*					System::audio;
+enum System::GSTATE			System::gState;
+bool					System::isPauseGame;
+bool					System::isSound_Music_On;
+bool					System::isSound_Effects_On;
+bool					System::isVideo_Smoth_On;
+bool					System::isVideo_VertSync_On;
+bool					System::isLanguageRU;
+uint					System::sound_Vol_Music;
+uint					System::sound_Vol_Effects;
+Shape					System::SCursor;
 
-sf::FloatRect B::getVisible()
+sf::FloatRect System::getVisible()
 {
 	return sf::FloatRect(float(planet_p.x - (scr_W/2)*1.4f), float(planet_p.y - (scr_H/2)*1.4f),  float(scr_W*1.8),  float(scr_H*1.8));
 }
 
-void B::SystemTime()
+void System::SystemTime()
 {
 	time = float(clock.getElapsedTime().asMicroseconds() / 1000.f), clock.restart();
 	time_enemy = time;
@@ -46,19 +44,19 @@ void B::SystemTime()
 	SCursor.rotate(0.1*time);
 }
 
-v2f B::GetNormalizedPosition(const v2f& pos, float dist, float angle)
+v2f System::GetNormalizedPosition(const v2f& pos, float dist, float angle)
 {
 	const float& A = angle * RAD;
 	return pos + v2f(cosf(A),sinf(A))*dist;
 }
 
-v2f B::GetNormalizedPosition(Shape& shape, float dist, float angle)
+v2f System::GetNormalizedPosition(Shape& shape, float dist, float angle)
 {
 	const float& A = angle * RAD;
 	return shape.getPosition() + v2f(cosf(A),sinf(A))*dist;
 }
 
-void B::MoveToAngle(Shape &shape, float speed, float angle, bool is_Enemy_Time)
+void System::MoveToAngle(Shape &shape, float speed, float angle, bool is_Enemy_Time)
 {
 	const float& A = angle * RAD;
 	const float S = speed * scr_1;
@@ -66,7 +64,7 @@ void B::MoveToAngle(Shape &shape, float speed, float angle, bool is_Enemy_Time)
 	else shape.move(v2f(cosf(A),sinf(A)) * (S * time)); 
 }
 
-void B::MoveToAngle(v2f& point, float speed, float angle, bool is_Enemy_Time)
+void System::MoveToAngle(v2f& point, float speed, float angle, bool is_Enemy_Time)
 {
 	const float& A = angle * RAD;
 	const float& S = speed * scr_1;
@@ -74,7 +72,7 @@ void B::MoveToAngle(v2f& point, float speed, float angle, bool is_Enemy_Time)
 	else point += v2f(cosf(A),sinf(A)) * (S * time);
 }
 
-bool B::GetCollisionCircle(Shape& c1, Shape& c2)
+bool System::GetCollisionCircle(Shape& c1, Shape& c2)
 {
 	const float r1 = c1.getSize().x / 2.f;
 	const float r2 = c2.getSize().x / 2.f;
@@ -83,25 +81,25 @@ bool B::GetCollisionCircle(Shape& c1, Shape& c2)
 	return GetDistance(p1, p2) > float(r1 + r2) ? false : true;
 }
 
-float B::GetDistance(const v2f& p1, const v2f& p2)
+float System::GetDistance(const v2f& p1, const v2f& p2)
 {
 	return sqrt(pow(p1.x - p2.x,2) + pow(p1.y - p2.y,2));
 }
 
-float B::GetDistance(Shape& s1, Shape& s2)
+float System::GetDistance(Shape& s1, Shape& s2)
 {
 	const v2f& p1 = s1.getPosition();	
 	const v2f& p2 = s2.getPosition();
 	return GetDistance(p1, p2);
 }
 
-float B::GetDistance(Shape& s1, const  v2f& pos)
+float System::GetDistance(Shape& s1, const  v2f& pos)
 {
 	const v2f& p1 = s1.getPosition();
 	return GetDistance(p1, pos);
 }
 
-void B::ConstructShape(Shape& shp, v2f pos, v2f siz, IMG& png, const bool perc_pos)
+void System::ConstructShape(Shape& shp, v2f pos, v2f siz, sf::Texture& png, const bool perc_pos)
 {
 	shp.setOrigin(siz*scr_1/2.f);
 	shp.setSize(siz*scr_1);
@@ -110,7 +108,7 @@ void B::ConstructShape(Shape& shp, v2f pos, v2f siz, IMG& png, const bool perc_p
 	shp.setTexture(&png);
 }
 
-void B::ConstructShape(Shape& shp, v2f pos, v2f siz, const bool perc_pos)
+void System::ConstructShape(Shape& shp, v2f pos, v2f siz, const bool perc_pos)
 {
 	shp.setOrigin(siz*scr_1/2.f);
 	shp.setSize(siz*scr_1);
@@ -118,16 +116,16 @@ void B::ConstructShape(Shape& shp, v2f pos, v2f siz, const bool perc_pos)
 	else shp.setPosition(pos);
 }
 
-void B::ConstructShape(Shape& shp, v2f pos, v2f siz, CLR clr, bool perc_pos)
+void System::ConstructShape(Shape& shp, v2f pos, v2f siz, sf::Color color, bool perc_pos)
 {
 	shp.setSize(siz*scr_1);
 	shp.setOrigin(siz*scr_1/2.f);
-	shp.setFillColor(clr);
+	shp.setFillColor(color);
 	if(perc_pos) shp.setPosition(pos*scr_1);
 	else shp.setPosition(pos);
 }
 
-void B::ConstructText(sf::Text& text, v2f pos, float siz, sf::String str, sf::Font* font, CLR col)
+void System::ConstructText(sf::Text& text, v2f pos, float siz, sf::String str, sf::Font* font, sf::Color col)
 {
 	text.setFont(*font);
 	text.setStyle(sf::Text::Bold);
@@ -138,31 +136,29 @@ void B::ConstructText(sf::Text& text, v2f pos, float siz, sf::String str, sf::Fo
 	text.setPosition(pos);
 }
 
-float B::GetAngle(const v2f& p1, const v2f& p2)
+float System::GetAngle(const v2f& p1, const v2f& p2)
 {
 	return atan2f(p2.y - p1.y, p2.x - p1.x) * DEG;
 }
 
-float B::GetAngle(Shape& shp, const v2f& p)
+float System::GetAngle(Shape& shp, const v2f& p)
 {
 	return atan2f(p.y - shp.getPosition().y, p.x - shp.getPosition().x) * DEG;
 }
 
-float B::GetAngle(Shape& shp1, Shape& shp2)
+float System::GetAngle(Shape& shp1, Shape& shp2)
 {
 	const v2f& p1 = shp1.getPosition();
 	const v2f& p2 = shp2.getPosition();
 	return atan2f(p2.y - p1.y, p2.x - p1.x) * DEG;
 }
 
-void B::CenteringText(sf::Text& text)
+void System::CenteringText(sf::Text& text)
 {
 	text.setOrigin(text.getGlobalBounds().width / 2.f, text.getGlobalBounds().height / 1.5f);
 }
 
-B::System(){}
-
-B::System(bool init)
+System::System(bool init)
 {
 	if(init)
 	{
@@ -192,7 +188,7 @@ B::System(bool init)
 		cur_p = v2f(0,0);
 		wnd->setView(cam);
 		wnd->setMouseCursorVisible(false);
-//		wnd->setFramerateLimit(60);
+		wnd->setFramerateLimit(60);
 		srand(::time(0));
 		clock.restart();
 	}

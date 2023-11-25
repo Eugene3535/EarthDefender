@@ -1,7 +1,7 @@
 #pragma once
 #include "SpecEffect.h"
 
-SpecEffect_CubexSpark::SpecEffect_CubexSpark(v2f pos, v2f siz, IMG& img, sf::Color color, float angle, float timer_life, float speed) 
+SpecEffect_CubexSpark::SpecEffect_CubexSpark(v2f pos, v2f siz, sf::Texture& img, sf::Color color, float angle, float timer_life, float speed) 
 	: SpecEffect(timer_life), angle(angle), speed(speed)
 {
 	ConstructShape(shape, pos, siz, img, false);

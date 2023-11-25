@@ -12,7 +12,7 @@ public:
 
 	Shape shape[2];
 
-	oStar(v2f pos, v2f siz, float speed, IMG& img) : rot(0), speed(speed)
+	oStar(v2f pos, v2f siz, float speed, sf::Texture& img) : rot(0), speed(speed)
 	{
 		for(int i = 0; i < 2; i++) 
 			ConstructShape(shape[i], pos, siz, img, false);

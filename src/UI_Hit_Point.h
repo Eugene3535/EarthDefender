@@ -67,8 +67,8 @@ public:
 		wnd->draw(shpBar);
 		wnd->draw(shpPlato);
 		wnd->draw(shpBonus);
-		if(shpBar.getGlobalBounds().contains(cur_p)) ConstructText(text, shpBar.getPosition(), 1.25, to_string(int(current)) + "/" + to_string(int(max)), font_freshman, CLR::White);
-		else ConstructText(text, shpBar.getPosition(), 2, to_string(int((current / max) * 100)) + "%", font_freshman, CLR::White);
+		if(shpBar.getGlobalBounds().contains(cur_p)) ConstructText(text, shpBar.getPosition(), 1.25, to_string(int(current)) + "/" + to_string(int(max)), font_freshman, sf::Color::White);
+		else ConstructText(text, shpBar.getPosition(), 2, to_string(int((current / max) * 100)) + "%", font_freshman, sf::Color::White);
 		wnd->draw(text);
 	}
 };
@@ -94,7 +94,7 @@ public:
 		if(current <= 0) current = 0;
 		shpLine.setSize(v2f(size_line*(current/max), shpLine.getSize().y));
 		shpLine.setTextureRect(sf::IntRect(0,0,float(256*(current/max)),36));
-		ConstructText(text, shpBar.getPosition(), 1.5, to_string(int(current / max * 100))+"%", font_freshman, CLR::White);
+		ConstructText(text, shpBar.getPosition(), 1.5, to_string(int(current / max * 100))+"%", font_freshman, sf::Color::White);
 	}
 
 	virtual ~UI_Hit_Point() {}
@@ -118,7 +118,7 @@ public:
 		ConstructShape(shpLine, v2f(62.5, 34), v2f(20,5), texture->UI_Energy_Line);
 		shpBar.setRotation(270);
 		shpLine.setRotation(270);
-		ConstructText(text_Fail_Energy, v2f(0, -scr_1*25), 2, "Fail energy...", font_freshman, CLR(255,70,100));
+		ConstructText(text_Fail_Energy, v2f(0, -scr_1*25), 2, "Fail energy...", font_freshman, sf::Color(255,70,100));
 	}
 
 	virtual bool Cast(float cast)
@@ -126,17 +126,17 @@ public:
 		if(current < cast) 
 		{ 
 			timer_ShowTextFailEnergy = 2000;
-			ConstructText(text_Fail_Energy, v2f(0, -scr_1*25), 2, "Fail energy...", font_freshman, CLR(255,70,100));
+			ConstructText(text_Fail_Energy, v2f(0, -scr_1*25), 2, "Fail energy...", font_freshman, sf::Color(255,70,100));
 			return false;
 		}
 		else
 		{
-			if(current/max < 10) ConstructText(text_Fail_Energy, v2f(0, -scr_1*25), 3, "Low energy...", font_freshman, CLR(255,70,100));
+			if(current/max < 10) ConstructText(text_Fail_Energy, v2f(0, -scr_1*25), 3, "Low energy...", font_freshman, sf::Color(255,70,100));
 			current -= cast;
 		}
 		shpLine.setSize(v2f(size_line*(current/max), shpLine.getSize().y));
 		shpLine.setTextureRect(sf::IntRect(0,0,float(256*(current/max)),36));
-		ConstructText(text, shpBar.getPosition(), 2, to_string(int((current / max) * 100))+"%", font_freshman, CLR::White);
+		ConstructText(text, shpBar.getPosition(), 2, to_string(int((current / max) * 100))+"%", font_freshman, sf::Color::White);
 		return true;
 	}
 
@@ -146,7 +146,7 @@ public:
 		if(timer_ShowTextFailEnergy > 0)
 		{
 			timer_ShowTextFailEnergy-=time;
-			text_Fail_Energy.setColor(CLR(255,70,100,255*(timer_ShowTextFailEnergy/2000)));
+			text_Fail_Energy.setColor(sf::Color(255,70,100,255*(timer_ShowTextFailEnergy/2000)));
 			wnd->draw(text_Fail_Energy);
 		}
 	}

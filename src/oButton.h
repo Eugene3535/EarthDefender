@@ -1,7 +1,7 @@
 #pragma once
 #include "System.h"
 
-class oButton : public B
+class oButton : public System
 {
 
 protected:
@@ -17,7 +17,7 @@ public:
 	Shape shpText;
 	Shape shape;
 
-	oButton::oButton(v2f pos, v2f siz, IMG& img, IMG& text, const sf::String str_id) :
+	oButton::oButton(v2f pos, v2f siz, sf::Texture& img, sf::Texture& text, const sf::String str_id) :
 		name_id(str_id),
 		is_Inside(false), 
 		is_Click(false)
@@ -33,7 +33,7 @@ public:
 
 	virtual void Update()
 	{
-		is_Inside ? shpText.setFillColor(CLR(180,180,180)) : shpText.setFillColor(CLR::White);
+		is_Inside ? shpText.setFillColor(sf::Color(180,180,180)) : shpText.setFillColor(sf::Color::White);
 	}
 
 	virtual void Draw()
@@ -94,7 +94,7 @@ public:
 		return name_id;
 	}
 
-	virtual void setFillColor(CLR color)
+	virtual void setFillColor(sf::Color color)
 	{
 		shape.setFillColor(color);
 		shpText.setFillColor(color);
@@ -113,7 +113,7 @@ private:
 
 public:
 
-	Button_Float(v2f pos, v2f siz, IMG& img, IMG& text, const sf::String& str_text,const sf::String& str_id) : 
+	Button_Float(v2f pos, v2f siz, sf::Texture& img, sf::Texture& text, const sf::String& str_text,const sf::String& str_id) : 
 		oButton(pos, siz, img, text, str_id), 
 		pos_deft(shape.getPosition()), 
 		alpha(0)
@@ -147,7 +147,7 @@ class Button_Picked : public oButton
 {
 public:
 
-	Button_Picked(v2f pos, v2f siz, IMG& img, IMG& text,const sf::String& str_id) : 
+	Button_Picked(v2f pos, v2f siz, sf::Texture& img, sf::Texture& text,const sf::String& str_id) : 
 		oButton(pos, siz, img, text, str_id)
 	{
 	}
@@ -157,13 +157,13 @@ public:
 		oButton::Update();
 		if(is_Inside)
 		{
-			shape.setFillColor(CLR::Green);
-			shpText.setFillColor(CLR(0,200,155));
+			shape.setFillColor(sf::Color::Green);
+			shpText.setFillColor(sf::Color(0,200,155));
 		}
 		else
 		{
-			shape.setFillColor(CLR::White);
-			shpText.setFillColor(CLR(180,180,180));
+			shape.setFillColor(sf::Color::White);
+			shpText.setFillColor(sf::Color(180,180,180));
 		}
 	}
 
@@ -176,7 +176,7 @@ class Button_YN : public oButton
 {
 public:
 
-	Button_YN(v2f pos, v2f siz, IMG& img, IMG& text,const sf::String& str_id) : 
+	Button_YN(v2f pos, v2f siz, sf::Texture& img, sf::Texture& text,const sf::String& str_id) : 
 		oButton(pos, siz, img, text, str_id){}
 
 	~Button_YN(void){}

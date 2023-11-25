@@ -1,7 +1,7 @@
 #pragma once
 #include "System.h"
 
-class SpecEffect : public B
+class SpecEffect : public System
 {
 protected:
 
@@ -29,8 +29,8 @@ public:
 
 	Shape shape;
 
-	SpecEffect_CubexSpark(v2f pos, v2f siz, IMG& img, CLR color, float angle, float timer_life, float speed);
-	SpecEffect_CubexSpark(v2f pos, v2f siz, CLR color, float angle, float timer_life, float speed);
+	SpecEffect_CubexSpark(v2f pos, v2f siz, sf::Texture& img, sf::Color color, float angle, float timer_life, float speed);
+	SpecEffect_CubexSpark(v2f pos, v2f siz, sf::Color color, float angle, float timer_life, float speed);
 	SpecEffect_CubexSpark(Shape& shape, float timer_life, float speed);
 	virtual void Update();
 	virtual void Draw();
@@ -47,8 +47,8 @@ private:
 
 public:
 	
-	SpecEffect_BG_FloatQuad(v2f pos, v2f siz, IMG& img, sf::Color color, float angle, float timer_life);
-	SpecEffect_BG_FloatQuad(v2f pos, v2f siz, CLR color, float angle, float timer_life);
+	SpecEffect_BG_FloatQuad(v2f pos, v2f siz, sf::Texture& img, sf::Color color, float angle, float timer_life);
+	SpecEffect_BG_FloatQuad(v2f pos, v2f siz, sf::Color color, float angle, float timer_life);
 	SpecEffect_BG_FloatQuad(Shape& shape, float timer_life);
 	virtual void Update();
 	virtual void Draw();
@@ -63,7 +63,7 @@ private:
 
 public:
 
-	SpecEffect_Turbo(v2f pos, v2f siz, IMG& img, float angle, float timer_life);
+	SpecEffect_Turbo(v2f pos, v2f siz, sf::Texture& img, float angle, float timer_life);
 	virtual void Update();
 	virtual void Draw();
 	virtual ~SpecEffect_Turbo();

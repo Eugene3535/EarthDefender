@@ -33,13 +33,13 @@ public:
 
 				switch (gState)
 				{
-					case B::main_menu:
+					case System::main_menu:
 
 						for(auto menu: vec_MainMenu) menu->Action();
 
 						break;
 
-					case B::game: 
+					case System::game:
 
 						if(!vec_MainMenu.empty()) vec_MainMenu.clear();
 						for(auto level: vec_Level) level->Action(); 
@@ -66,19 +66,19 @@ public:
 
 			if(timer >= 250)
 			{
-				ConstructText(text_fps, v2f(0,0),1.5, sf::String(to_string(counter_frame*4)), font_freshman, CLR::Green);
+				ConstructText(text_fps, v2f(0,0),1.5, sf::String(to_string(counter_frame*4)), font_freshman, sf::Color::Green);
 				timer = 0;
 				counter_frame = 0;
 			}
 
 			switch (gState)
 			{
-				case B::main_menu:
+				case System::main_menu:
 					
 					for(auto menu: vec_MainMenu) menu->Update();
 					break;
 
-				case B::game: 
+				case System::game:
 					
 					if(vec_Level.empty()) 
 					{
@@ -95,13 +95,13 @@ public:
 
 			switch (gState)
 			{
-			case B::main_menu:
+			case System::main_menu:
 
 				for(auto menu: vec_MainMenu) menu->Draw();
 
 				break;
 
-			case B::game: 
+			case System::game:
 
 				for(auto level: vec_Level) level->Draw();
 

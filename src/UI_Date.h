@@ -19,7 +19,7 @@ public:
 		isHighbrow(false)
 	{
 		ConstructShape(shpBack, v2f(0,-scr_1*46.5), v2f(33.5,3.5), texture->UI_Bar,false);
-		ConstructText(text_Date, v2f(0,-scr_1*46.5), 1.75, "Year : " + to_string(year) + " Month : " + to_string(month) + " Day : " + to_string(day), font_freshman, CLR::White);
+		ConstructText(text_Date, v2f(0,-scr_1*46.5), 1.75, "Year : " + to_string(year) + " Month : " + to_string(month) + " Day : " + to_string(day), font_freshman, sf::Color::White);
 	}
 
 	virtual void Update(long &population)

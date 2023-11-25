@@ -7,13 +7,13 @@ private:
 
 public:
 
-	Star_02(v2f pos, v2f siz, float speed, IMG& img) : oStar(pos, siz, speed, img)
+	Star_02(v2f pos, v2f siz, float speed, sf::Texture& img) : oStar(pos, siz, speed, img)
 	{
 		rot = 0.03;
 		for(int i = 0; i < 2; i++)
 		{
 			shape[i].move(0,-scr_1w*30);
-			shape[i].setFillColor(CLR(255,255,255,140));
+			shape[i].setFillColor(sf::Color(255,255,255,140));
 		}
 	}
 

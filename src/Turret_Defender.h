@@ -2,7 +2,7 @@
 #include "System.h"
 #include "oMissle.h"
 
-class Turret_Defender : public B
+class Turret_Defender : public System
 {
 private:
 
@@ -49,7 +49,7 @@ public:
 		else shpTurret.rotate(-0.1*time);
 		std::string str;
 		for(int i = 0; i < 4; i++) str.push_back(to_string(timer/1000)[i]);
-		ConstructText(text_time, v2f(shpWheel.getPosition()), 2.5, str, font_freshman, CLR::Red);
+		ConstructText(text_time, v2f(shpWheel.getPosition()), 2.5, str, font_freshman, sf::Color::Red);
 		text_time.setRotation(cam.getRotation());
 	}
 

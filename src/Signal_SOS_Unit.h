@@ -16,7 +16,7 @@ public:
 	Shape shpBonusBorder[2];
 	vector<shared_ptr<Missle>> vec_Missle;
 	
-	Signal_SOS_Unit_01(v2f pos, v2f siz, const float speed, IMG &img, const float att_cldwn, const int level) 
+	Signal_SOS_Unit_01(v2f pos, v2f siz, const float speed, sf::Texture& img, const float att_cldwn, const int level)
 		: ATTACK_COLDOWN(att_cldwn), attack_Coldown(0), speed(speed), level(level)
 	{
 		
@@ -28,7 +28,7 @@ public:
 		shape.setRotation(GetAngle(shape, v2f(0,0)) + 10);
 		ConstructShape(shpBonusBorder[0],shape.getPosition(), siz*0.8f, texture->EFF_Bonus_Border, false);
 		shpBonusBorder[0].setScale(-1.5,-1.5);
-		shpBonusBorder[0].setFillColor(CLR(80,255,80,100));
+		shpBonusBorder[0].setFillColor(sf::Color(80,255,80,100));
 		shpBonusBorder[1] = shpBonusBorder[0];
 		shpBonusBorder[1].setScale(1.5,1.5);
 	}

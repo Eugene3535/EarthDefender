@@ -9,7 +9,7 @@ protected:
 
 public:
 
-	Enemy_Shooting(v2f pos, v2f siz, float speed, float hp, float attack_coldown, const int level, IMG& img, string name, const bool isBoss = false, const bool isHideHpBar = false) : 
+	Enemy_Shooting(v2f pos, v2f siz, float speed, float hp, float attack_coldown, const int level, sf::Texture& img, string name, const bool isBoss = false, const bool isHideHpBar = false) : 
 		oEnemy(pos, siz, speed, hp, level, img, name, isBoss, isHideHpBar), attack_coldown(attack_coldown), ATTACK_COLDOWN(attack_coldown)
 	{
 	}

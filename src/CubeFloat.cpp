@@ -3,7 +3,7 @@
 // CubeFloat::CubeFloat(v2f pos, v2f siz, float iof, float rad) : IOF(iof/=1000.f), radius(rad*scr_1), timer_create_spec_effect(0), timer_anim(16, 100, 0, 0, true), timer_outline(0, 200,0,0, true)
 // {
 // 	alpha = 0;
-// 	ConstructShape(shape, pos, siz, CLR::Transparent);
+// 	ConstructShape(shape, pos, siz, sf::Color::Transparent);
 
 // 	for(int i = 0; i < 2; i++)
 // 	{
@@ -32,13 +32,13 @@
 
 // 	const float c = cos(alpha);
 // 	const float s = sin(alpha);
-// 	const CLR color(255 * (1.f+s)/2.f, 255 * (1.f+c)/2.f, 255 * (1.f+cos(alpha/2))/2.f, 50);
+// 	const sf::Color color(255 * (1.f+s)/2.f, 255 * (1.f+c)/2.f, 255 * (1.f+cos(alpha/2))/2.f, 50);
 
 // 	shape.setPosition(SPAWN_POS + v2f(cos(alpha), sin(alpha))*radius);
-// 	//shape.setFillColor(CLR(color.b,color.r,color.g,180));
+// 	//shape.setFillColor(sf::Color(color.b,color.r,color.g,180));
 // 	if(timer_outline.TickEnd())
 // 	{
-// 		shape.setOutlineColor(CLR(color.r,color.g,color.b,180));
+// 		shape.setOutlineColor(sf::Color(color.r,color.g,color.b,180));
 // 		shape.setOutlineThickness(-cos(alpha)*(shape.getSize().x/4.f));
 // 	}
 // 	shape.setRotation(cos(alpha)*45.f);
@@ -73,9 +73,9 @@
 // 		shpEmitter[i].setPosition(GetNormalizedPosition(shape.getPosition(), shape.getSize().x/1.6f, shpEmitter[i].getRotation()));
 // 		shpLighting[i].setPosition(GetNormalizedPosition(shape.getPosition(), shape.getSize().x/2.15f, shpLighting[i].getRotation()));
 
-// 		//const CLR& c1 = shape.getFillColor();
-// 		//const CLR& c2 = shape.getOutlineColor();
-// 		//shpLighting[i].setFillColor(CLR((c1.r + c2.r)/2, (c1.g + c2.g)/2, (c1.b + c2.b)/2));
+// 		//const sf::Color& c1 = shape.getFillColor();
+// 		//const sf::Color& c2 = shape.getOutlineColor();
+// 		//shpLighting[i].setFillColor(sf::Color((c1.r + c2.r)/2, (c1.g + c2.g)/2, (c1.b + c2.b)/2));
 
 // 		if( a ) shpLighting[i].setTextureRect(sf::IntRect(timer_anim.order_current*25,0,25,204));
 // 	}

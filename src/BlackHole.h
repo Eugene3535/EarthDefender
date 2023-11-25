@@ -21,8 +21,8 @@ public:
 		const float siz = 7.5f + ( (lvl-1) * 2.5);
 		ConstructShape(shape[0], cur_p, v2f(siz,siz), texture->EFF_BlackHole[1], false);
 		ConstructShape(shpBackHole, cur_p, v2f(siz,siz)*1.25f, texture->EFF_BlackHole[2], false);
-		shpBackHole.setFillColor(CLR(255,255,255,80));
-		shape[0].setFillColor(CLR(255,255,255,125));
+		shpBackHole.setFillColor(sf::Color(255,255,255,80));
+		shape[0].setFillColor(sf::Color(255,255,255,125));
 		shape[1] = shape[0];
 		shape[1].setTexture(&texture->EFF_BlackHole[0]);
 		shape[1].setScale(-1, 1);
@@ -40,7 +40,7 @@ public:
 		const float siz = 7.5f + ( (lvl-1) * 2.5);
 		ConstructShape(shape[0], cur_p, v2f(siz,siz), texture->EFF_BlackHole[1], false);
 		shpBackHole.setSize(shape[0].getSize()*1.25f);
-		shape[0].setFillColor(CLR(255,255,255,125));
+		shape[0].setFillColor(sf::Color(255,255,255,125));
 		shape[1] = shape[0];
 		shape[1].setTexture(&texture->EFF_BlackHole[0]);
 		shape[1].setScale(-1, 1);

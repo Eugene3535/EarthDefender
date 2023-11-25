@@ -7,7 +7,7 @@ class Enemy_Kamikadze : public oEnemy
 
 public:
 
-	Enemy_Kamikadze(v2f pos, v2f siz, float speed, float hp, const int level, IMG& img, string name, const bool isBoss = false, const bool isHideHpBar = false) 
+	Enemy_Kamikadze(v2f pos, v2f siz, float speed, float hp, const int level, sf::Texture& img, string name, const bool isBoss = false, const bool isHideHpBar = false) 
 		: oEnemy(pos, siz, speed, hp, level, img, name, isBoss, isHideHpBar)
 	{
 		shape.setScale(0.01, 0.01);

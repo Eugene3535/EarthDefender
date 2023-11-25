@@ -1,7 +1,7 @@
 #pragma once
 #include "Bonus.h"
 
-class Bonus_Dealler : public B
+class Bonus_Dealler : public System
 {
 private:
 

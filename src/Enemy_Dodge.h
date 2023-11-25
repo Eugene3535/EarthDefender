@@ -16,7 +16,7 @@ private:
 
 public:
 
-	Enemy_Dodge(v2f pos, v2f siz, float speed, float hp, const int level, float radius_rot, IMG& img, string name, const bool isBoss = false, const bool isHideHpBar = false) : 
+	Enemy_Dodge(v2f pos, v2f siz, float speed, float hp, const int level, float radius_rot, sf::Texture& img, string name, const bool isBoss = false, const bool isHideHpBar = false) : 
 		oEnemy(pos, siz, speed, hp, level, img, name, isBoss, isHideHpBar),
 		isRotDir(rand()%2), 
 		rotSpeed(0.05),
@@ -51,7 +51,7 @@ public:
 		if(timer_stun < 0) // Движение
 		{
 			alpha += time_enemy/500;
-			shape.setFillColor(CLR(255,255,255));
+			shape.setFillColor(sf::Color(255,255,255));
 			MoveToAngle(pos, speed, angle, true);
 			shape.setPosition(pos + v2f(cos(alpha), sin(alpha))*radius);
 		}
@@ -59,7 +59,7 @@ public:
 		{
 			alpha += time_enemy/3000;
 			timer_stun -= time_enemy;
-			shape.setFillColor(CLR(255*(timer_stun/TIMER_STUN),255,255));
+			shape.setFillColor(sf::Color(255*(timer_stun/TIMER_STUN),255,255));
 			MoveToAngle(pos, speed/3.f, angle, true); 
 			shape.setPosition(pos + v2f(cos(alpha), sin(alpha))*radius);
 		}

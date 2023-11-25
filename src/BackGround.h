@@ -2,7 +2,7 @@
 #include "Star_01.h"
 #include "Star_02.h"
 
-class BackGround : public B
+class BackGround : public System
 {
 private:
 
@@ -30,14 +30,14 @@ public:
 	{
 		const float C = cos(alpha);
 		const float S = sin(alpha);
-		const CLR color(255 * (1.f+-S)/2.f, 255 * (1.f+-C)/2.f, 255 * (1.f+-cos(alpha/2))/2.f, 50);
+		const sf::Color color(255 * (1.f+-S)/2.f, 255 * (1.f+-C)/2.f, 255 * (1.f+-cos(alpha/2))/2.f, 50);
 		shpUniverse1.setRotation((-C*10) + 45);
 		shpUniverse1.setScale(v2f(1+(-C/5),1+(-S/5)));
 		shpUniverse1.setPosition(v2f(-C,-S)*(15*scr_1));
 
 		shpUniverse2.setRotation((C*10) + 45);
 		shpUniverse2.setScale(v2f(1+(C/5),1+(S/5)));
-		shpUniverse2.setFillColor(CLR(color.b,color.r,color.g,175));
+		shpUniverse2.setFillColor(sf::Color(color.b,color.r,color.g,175));
 		shpUniverse2.setPosition(v2f(C,S)*(15*scr_1));
 
 		alpha += 0.00015*time;

@@ -1,7 +1,7 @@
 #pragma once
 #include"System.h"
 
-class oMissle : public B
+class oMissle : public System
 {
 protected:
 
@@ -50,7 +50,7 @@ class Missle : public oMissle
 {
 public:
 
-	Missle(v2f pos, v2f siz, float speed, float angle, IMG& img, int damage, bool isEnemy) : oMissle(pos, siz, speed, angle, damage, isEnemy)
+	Missle(v2f pos, v2f siz, float speed, float angle, sf::Texture& img, int damage, bool isEnemy) : oMissle(pos, siz, speed, angle, damage, isEnemy)
 	{
 		ConstructShape(shape, pos, siz, false);
 		shape.setTexture(&img);
@@ -81,11 +81,11 @@ private:
 	float alpha;
 	bool isRotDir;
 	const float radius;
-	CLR color;
+	sf::Color color;
 
 public:
 
-	Missle_Plasm(v2f pos, v2f siz, float speed, float angle, IMG& img, int damage,  bool isEnemy, bool isRicochet) : 
+	Missle_Plasm(v2f pos, v2f siz, float speed, float angle, sf::Texture& img, int damage,  bool isEnemy, bool isRicochet) : 
 		oMissle(pos, siz, speed, angle, damage, isEnemy), 
 		color(color),
 		alpha(0),
@@ -101,13 +101,13 @@ public:
 
 		if(!isRicochet)
 		{
-			shape.setFillColor(CLR(rand()%156+100,rand()%156+100,rand()%156+100));
+			shape.setFillColor(sf::Color(rand()%156+100,rand()%156+100,rand()%156+100));
 			shape2.setFillColor(shape.getFillColor());
 		}
 		else
 		{
-			shape.setFillColor(CLR(255,rand()%50+100,rand()%50+100));
-			shape2.setFillColor(CLR(255,rand()%50+100,rand()%50+100));
+			shape.setFillColor(sf::Color(255,rand()%50+100,rand()%50+100));
+			shape2.setFillColor(sf::Color(255,rand()%50+100,rand()%50+100));
 		}
 	}
 
@@ -138,7 +138,7 @@ public:
 
 	Shape shape2;
 
-	Missle_Lighting_Ball(v2f pos, v2f siz, float speed, float angle, IMG& img, int damage,  bool isEnemy) : oMissle(pos, siz, speed, angle, damage, isEnemy)
+	Missle_Lighting_Ball(v2f pos, v2f siz, float speed, float angle, sf::Texture& img, int damage,  bool isEnemy) : oMissle(pos, siz, speed, angle, damage, isEnemy)
 	{
 		ConstructShape(shape, pos, siz, img, false);
 		shape2 = shape;

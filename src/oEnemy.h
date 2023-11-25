@@ -27,7 +27,7 @@ public:
 	Shape shape;
 	string name;
 
-	oEnemy(v2f pos, v2f siz, float speed, float hp, const int level, IMG& img, string name, const bool isBoss = false, const bool isHideHpBar = false) :
+	oEnemy(v2f pos, v2f siz, float speed, float hp, const int level, sf::Texture& img, string name, const bool isBoss = false, const bool isHideHpBar = false) :
 		speed(speed),  
 		hp(hp), 
 		maxHp(hp),
@@ -40,7 +40,7 @@ public:
 	{
 		ConstructShape(shape,pos, siz, img, false);
 		indicator_hp_postiton = v2f(shape.getPosition().x - (shape.getSize().x / 2.f), shape.getPosition().y - (shape.getSize().y / 2.f));
-		ConstructShape(shpIndicatorHp, indicator_hp_postiton, v2f(siz.x, 3.f/scr_1), CLR::Green, false);
+		ConstructShape(shpIndicatorHp, indicator_hp_postiton, v2f(siz.x, 3.f/scr_1), sf::Color::Green, false);
 
 		for(int i = 0; i < 2; i++) 
 		{
@@ -48,7 +48,7 @@ public:
 			if(siz.x > siz.y) SIZE = siz.x;
 			else SIZE = siz.y;
 			ConstructShape(shpTarget[i], pos, v2f(SIZE,SIZE) * 1.35f, texture->EFF_Warning_Red_Circle, false);
-			shpTarget[i].setFillColor(CLR(255,255,255,120));
+			shpTarget[i].setFillColor(sf::Color(255,255,255,120));
 		}
 
 		shpTarget[0].setScale(shape.getScale());
@@ -83,13 +83,13 @@ public:
 	{
 		if(timer_stun < 0)
 		{
-			shape.setFillColor(CLR(255,255,255));
+			shape.setFillColor(sf::Color(255,255,255));
 			MoveToAngle(shape, speed, angle, true); 
 		}
 		else 
 		{
 			timer_stun -= time_enemy;
-			shape.setFillColor(CLR(255 * ( timer_stun / TIMER_STUN ), 255, 255));
+			shape.setFillColor(sf::Color(255 * ( timer_stun / TIMER_STUN ), 255, 255));
 			MoveToAngle(shape, speed/3, angle, true); 
 		}
 		indicator_hp_postiton = v2f(shape.getPosition().x - (shape.getSize().x / 2.f), shape.getPosition().y - (shape.getSize().y / 2.f));

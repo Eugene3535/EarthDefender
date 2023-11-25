@@ -17,13 +17,13 @@ public:
 	{
 		ConstructShape(barPlanet, v2f(34,-45), v2f(25,7), texture->UI_Bar);
 		ConstructShape(shpIcoPlanet, v2f(50,-45), v2f(7,7), texture->UI_Ico);
-		ConstructText(text, v2f(34,-45)*scr_1, 2, "People: " + to_string(piple) + "M", font_freshman, CLR::White);
+		ConstructText(text, v2f(34,-45)*scr_1, 2, "People: " + to_string(piple) + "M", font_freshman, sf::Color::White);
 		ConstructShape(shpPlanet, v2f(50,-45), v2f(7,7), texture->UI_People);
 	}
 
 	virtual void Update()
 	{
-		 ConstructText(text, v2f(34,-45)*scr_1, 2, "People: " + to_string(people) + "M", font_freshman, CLR::White);
+		 ConstructText(text, v2f(34,-45)*scr_1, 2, "People: " + to_string(people) + "M", font_freshman, sf::Color::White);
 	}
 
 	virtual void Draw()

@@ -1,13 +1,13 @@
 #pragma once
-// #pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")
-// https://partner.steamgames.com/doc/api/steam_api#SteamAPI_Init
-//
+
+#ifndef DEBUG
+#pragma comment(linker, "/SUBSYSTEM:windows /ENTRY:mainCRTStartup")
+#endif // !DEBUG
 
 #define PI  3.141590
 #define DEG 57.29582
 #define RAD 0.017453
 
-//#include "steam_api.h"
 #include "SettingsConfig.h"
 #include <sstream>
 #include <iostream>
@@ -20,7 +20,6 @@
 #include <Windows.h>
 
 class System;
-typedef System B; // ��� �������� ������� � ����� � ������� Basis ���������� B::
 
 using std::cout;
 using std::endl;
@@ -32,7 +31,6 @@ using std::sinf;
 using std::atanf;
 using std::make_shared;
 
-// using std::auto_ptr;
 using std::vector;
 using std::string;
 using std::shared_ptr;
@@ -44,5 +42,3 @@ typedef sf::Vector2i v2i;
 typedef sf::Vector2f v2f;
 typedef sf::Keyboard Key;
 typedef sf::RectangleShape Shape;
-typedef sf::Texture IMG;
-typedef sf::Color CLR;

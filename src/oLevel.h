@@ -19,7 +19,7 @@
 // Добавить способность призывающую добрых нло
 
 
-class LevelName : public B
+class LevelName : public System
 {
 private:
 	
@@ -50,9 +50,9 @@ public:
 		if(timer_preview > 0) timer_create += time;
 		if(timer_create > 50) 
 		{
-			shpLevel.setFillColor(CLR(75+rand()%100,75+rand()%100,75+rand()%100, 255*(timer_preview/7500)));
-			shpNum[0].setFillColor(CLR(75+rand()%100,75+rand()%100,75+rand()%100, 255*(timer_preview/7500)));
-			shpNum[1].setFillColor(CLR(75+rand()%100,75+rand()%100,75+rand()%100, 255*(timer_preview/7500)));
+			shpLevel.setFillColor(sf::Color(75+rand()%100,75+rand()%100,75+rand()%100, 255*(timer_preview/7500)));
+			shpNum[0].setFillColor(sf::Color(75+rand()%100,75+rand()%100,75+rand()%100, 255*(timer_preview/7500)));
+			shpNum[1].setFillColor(sf::Color(75+rand()%100,75+rand()%100,75+rand()%100, 255*(timer_preview/7500)));
 			for(int i = 0; i < scr_W; i += ( scr_1 * 5 ) )
 			{
 				vec_Missle_E.push_back(make_shared<Missle_Lighting_Ball>(
@@ -83,7 +83,7 @@ public:
 		}
 		else
 		{
-			for(int i = 0; i < 2; i++) shpNum[i].setFillColor(CLR(255,255,255,255*(timer_preview/7500)));
+			for(int i = 0; i < 2; i++) shpNum[i].setFillColor(sf::Color(255,255,255,255*(timer_preview/7500)));
 		}
 	}
 
@@ -107,7 +107,7 @@ public:
 	virtual ~LevelName() {}
 };
 
-class FloatText : public B
+class FloatText : public System
 {
 private:
 
@@ -116,13 +116,13 @@ private:
 	const float TIMER_LIFE;
 	const v2f POSITION;
 	float alpha;
-	CLR clr;
+	sf::Color m_color;
 
 public:
 
-	FloatText(v2f pos, float siz, string str, float timer_life, CLR clr = CLR::Yellow) : timer_life(timer_life), POSITION(pos), alpha(0), TIMER_LIFE(timer_life), clr(clr)
+	FloatText(v2f pos, float siz, string str, float timer_life, sf::Color color = sf::Color::Yellow) : timer_life(timer_life), POSITION(pos), alpha(0), TIMER_LIFE(timer_life), m_color(color)
 	{
-		ConstructText(text, pos, siz, str, font_freshman, clr);
+		ConstructText(text, pos, siz, str, font_freshman, color);
 	}
 
 	virtual void Update()
@@ -135,7 +135,7 @@ public:
 			alpha += time * 0.003;
 			text.setRotation(cam.getRotation());
 			text.setPosition(POSITION + v2f(cos(alpha), sin(alpha)) * scr_1);
-			text.setColor(CLR(clr.r,clr.g,clr.b, clr.a * scaler ));
+			text.setColor(sf::Color(m_color.r, m_color.g, m_color.b, m_color.a * scaler ));
 			text.setScale(2 - scaler, 2 - scaler);
 		}
 	}
@@ -151,7 +151,7 @@ public:
 
 };
 
-class oLevel : public B
+class oLevel : public System
 {
 protected:
 
@@ -231,12 +231,12 @@ public:
 		}
 
 		// Добавляем плавающий текст получения бонуса "Опыт и его кол-во"
-		vec_FloatText.push_back(make_shared<FloatText>(FloatText(enemy.shape.getPosition(),1.5f, "EXP +" + to_string(enemy.GetLevel()*36), 2000, CLR(180, 0, 165))));
+		vec_FloatText.push_back(make_shared<FloatText>(FloatText(enemy.shape.getPosition(),1.5f, "EXP +" + to_string(enemy.GetLevel()*36), 2000, sf::Color(180, 0, 165))));
 		if(tank.ui.experience.addExp(enemy.GetLevel() * 36)) // Если апнули уровень
 		{
 			tank.LevelUp();
 			// Добавляем плавающий текст получения нового уровня
-			vec_FloatText.push_back(make_shared<FloatText>(FloatText(tank.shpWheel.getPosition(),3.5f, "LVL UP" + to_string(tank.getLevel()) + "!", 4000, CLR::Green)));
+			vec_FloatText.push_back(make_shared<FloatText>(FloatText(tank.shpWheel.getPosition(),3.5f, "LVL UP" + to_string(tank.getLevel()) + "!", 4000, sf::Color::Green)));
 		}
 	}
 
@@ -450,7 +450,7 @@ public:
 					// Если это бонус опыта
 					if(bonus.GetType() == "experience")
 					{
-						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, -scr_1*40, cam.getRotation()),2.25f, "Exp +" + to_string((tank.level * 18) + 36) + "!", 2000, CLR(180, 0, 165))));
+						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, -scr_1*40, cam.getRotation()),2.25f, "Exp +" + to_string((tank.level * 18) + 36) + "!", 2000, sf::Color(180, 0, 165))));
 						if(tank.ui.experience.addExp((tank.level * 18) + 36)) 
 						{
 							tank.LevelUp();
@@ -460,72 +460,72 @@ public:
 					else if(bonus.GetType() == "shield")
 					{
 						tank.ui.world_shield.Run();
-						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-24),2.25f, "Shield!", 1200, CLR::White)));
+						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-24),2.25f, "Shield!", 1200, sf::Color::White)));
 					}
 					// Многоструйная атака
 					else if(bonus.GetType() == "multiple")
 					{
 						tank.ui.multiple_attack.Run();
-						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-48),2.25f, "Multiple!", 1200, CLR::Cyan)));
+						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-48),2.25f, "Multiple!", 1200, sf::Color::Cyan)));
 					}
 					// Замедление времени
 					else if(bonus.GetType() == "slow")
 					{
 						tank.ui.time_slow.Run();
-						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-72),2.25f, "Slow!", 1200, CLR(255, 20, 252))));
+						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-72),2.25f, "Slow!", 1200, sf::Color(255, 20, 252))));
 					}
 					// Двойной урон
 					else if(bonus.GetType() == "power")
 					{
 						tank.ui.double_damage.Run();
-						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-96),2.25f, "Power!", 1200, CLR::Blue)));
+						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-96),2.25f, "Power!", 1200, sf::Color::Blue)));
 					}
 					// Нескончаемая энергия
 					else if(bonus.GetType() == "overload")
 					{
 						tank.ui.hight_overload.Run();
-						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-120),2.25f, "Overload!", 1200, CLR(255, 102, 0))));
+						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-120),2.25f, "Overload!", 1200, sf::Color(255, 102, 0))));
 					}
 					// Разрыв врагов при убийстве
 					else if(bonus.GetType() == "shards")
 					{
 						tank.ui.fragment_explosion.Run();
-						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-144),2.25f, "Shards!", 1200, CLR(204, 255, 153))));
+						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-144),2.25f, "Shards!", 1200, sf::Color(204, 255, 153))));
 					}
 					// Хронотанк
 					else if(bonus.GetType() == "chrono")
 					{
 						tank.ui.mirror_tank.Run();
-						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-168),2.25f, "Chrono!", 1200, CLR(204, 102, 153))));
+						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-168),2.25f, "Chrono!", 1200, sf::Color(204, 102, 153))));
 					}
 					// Взрывные снаряды с рикошетом
 					else if(bonus.GetType() == "explosive")
 					{
 						tank.ui.splash_ricochet.Run();
-						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-192),2.25f, "Explosive!", 1200, CLR::Red)));
+						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-192),2.25f, "Explosive!", 1200, sf::Color::Red)));
 					}
 					// Атака плазмой
 					else if(bonus.GetType() == "plasm")
 					{
 						tank.ui.plasm_attack.Run();
-						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-216),2.25f, "Plasm!", 1200, CLR(0, 153, 255))));
+						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-216),2.25f, "Plasm!", 1200, sf::Color(0, 153, 255))));
 					}
 					// Защитная установка
 					else if(bonus.GetType() == "turret")
 					{
 						tank.ui.turret_defender.KeepTime();
-						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-240),2.25f, "Turret +1", 1200, CLR::Yellow)));
+						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-240),2.25f, "Turret +1", 1200, sf::Color::Yellow)));
 					}
 					// Пополнение энергии
 					else if(bonus.GetType() == "energy")
 					{
-						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-264),2.25f, "Energy +" + to_string(int(tank.ui.energy_point.getMax()/10)), 1200, CLR(102, 153, 255))));
+						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-264),2.25f, "Energy +" + to_string(int(tank.ui.energy_point.getMax()/10)), 1200, sf::Color(102, 153, 255))));
 						tank.ui.energy_point.Regen(tank.ui.energy_point.getMax()/10);
 					}
 					// Пополнение здоровья
 					else if(bonus.GetType() == "heal")
 					{
-						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-288),2.25f, "Heal +" + to_string(int(tank.ui.hit_point.getMax()/10)), 1200, CLR::Green)));
+						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-288),2.25f, "Heal +" + to_string(int(tank.ui.hit_point.getMax()/10)), 1200, sf::Color::Green)));
 						tank.ui.hit_point.Regen(tank.ui.hit_point.getMax()/10);
 					}
 					// Сигнал SOS
@@ -537,14 +537,14 @@ public:
 							vec_SOS_Unit.push_back(make_shared<Signal_SOS_Unit_01>(Signal_SOS_Unit_01(SP(), v2f(5,5), 0.0225f, texture->SOS[0], 600, tank.ui.signal_sos.getLevel())));
 						}
 
-						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-312),2.25f, "SOS!", 1200, CLR::Magenta)));
+						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-312),2.25f, "SOS!", 1200, sf::Color::Magenta)));
 						tank.ui.signal_sos.Run();
 					}
 					// Черная дыра
 					else if(bonus.GetType() == "blackhole")
 					{
 						tank.ui.black_hole.Run();
-						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-336),2.25f, "Black Hole!", 1200, CLR::White)));
+						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-336),2.25f, "Black Hole!", 1200, sf::Color::White)));
 						black_Hole.Reset(tank.ui.black_hole.getLevel());
 					}
 					it = vec_Bonus.erase(it);
@@ -591,7 +591,7 @@ public:
 						 // Если враг столкнулся с защитным полем
 						if(GetCollisionCircle(tank.ui.world_shield.shpShield[0], enemy.shape) && !enemy.isBoss)
 						{
-							vec_FloatText.push_back(make_shared<FloatText>(FloatText(enemy.shape.getPosition(),1.f, "Absorb!", 1200, CLR::White)));
+							vec_FloatText.push_back(make_shared<FloatText>(FloatText(enemy.shape.getPosition(),1.f, "Absorb!", 1200, sf::Color::White)));
 							enemy.Damage(9999);
 						}
 					}
@@ -610,7 +610,7 @@ public:
 									if(s.length() != '0' && s.length() - 1 == '.') break;
 								}
 
-								vec_FloatText.push_back(make_shared<FloatText>(FloatText(enemy.shape.getPosition(), 1.75f, s, 500, CLR::Green)));
+								vec_FloatText.push_back(make_shared<FloatText>(FloatText(enemy.shape.getPosition(), 1.75f, s, 500, sf::Color::Green)));
 							}
 							MoveToAngle(enemy.shape, 0.065f, GetAngle(enemy.shape, black_Hole.shape[0]), false);
 						}
@@ -623,7 +623,7 @@ public:
 						if(GetCollisionCircle(missle.shape, enemy.shape) && (enemy.name != "trb1" || enemy.name != "trb2" || enemy.name != "trb3" || enemy.name != "trb4" || enemy.name != "trb5"))
 						{
 							enemy.Damage(tank.GetDamage(), 1000);
-							vec_FloatText.push_back(make_shared<FloatText>(FloatText(enemy.shape.getPosition(), 1.75f, to_string(tank.GetDamage()), 1200, CLR::Green)));
+							vec_FloatText.push_back(make_shared<FloatText>(FloatText(enemy.shape.getPosition(), 1.75f, to_string(tank.GetDamage()), 1200, sf::Color::Green)));
 							vec_Bang.push_back(make_shared<Bang_Damage>(Bang_Damage(enemy.shape.getPosition(), GetAngle(tank.shpWheel, enemy.shape), 750, 1.5f)));
 
 							if(tank.ui.splash_ricochet.isEnd())
@@ -643,7 +643,7 @@ public:
 										if(GetCollisionCircle(ricochet->shape[0], enemy2->shape))
 										{
 											enemy2->Damage(tank.GetDamage()/2, 1000);
-											vec_FloatText.push_back(make_shared<FloatText>(FloatText(tank.shpWheel.getPosition(), 1.75f, to_string(tank.GetDamage()/2), 1200, CLR::Green)));
+											vec_FloatText.push_back(make_shared<FloatText>(FloatText(tank.shpWheel.getPosition(), 1.75f, to_string(tank.GetDamage()/2), 1200, sf::Color::Green)));
 										}
 									}
 								}
@@ -659,14 +659,14 @@ public:
 					{
 						enemy.Damage(99999);
 						tank.ui.people.Kill(enemy.GetMaxHp() * 2);
-						vec_FloatText.push_back(make_shared<FloatText>(FloatText(tank.shpPlanet.getPosition(),2.25f, to_string(int(enemy.GetMaxHp()) * 2) + "!", 2500, CLR::Red)));
+						vec_FloatText.push_back(make_shared<FloatText>(FloatText(tank.shpPlanet.getPosition(),2.25f, to_string(int(enemy.GetMaxHp()) * 2) + "!", 2500, sf::Color::Red)));
 					}
 					// Если вражеский корабль врезался в танк
 					if(GetCollisionCircle(tank.shpWheel, enemy.shape))
 					{
 						enemy.Damage(99999);
 						tank.ui.hit_point.Damage(enemy.GetMaxHp());
-						vec_FloatText.push_back(make_shared<FloatText>(FloatText(tank.shpWheel.getPosition(), 2.25f, "-" + to_string(int(enemy.GetMaxHp()) / 2) + "!", 2500, CLR::Red)));
+						vec_FloatText.push_back(make_shared<FloatText>(FloatText(tank.shpWheel.getPosition(), 2.25f, "-" + to_string(int(enemy.GetMaxHp()) / 2) + "!", 2500, sf::Color::Red)));
 						vec_Effect_Tank_Damage.push_back(make_shared<Effect_Tank_Damage>(Effect_Tank_Damage(tank.shpWheel.getPosition())));
 					}
 
@@ -738,7 +738,7 @@ public:
 				if(GetCollisionCircle(missle.shape, tank.shpPlanet))
 				{
 					tank.ui.people.Kill(missle.getDamage() / 2);
-					vec_FloatText.push_back(make_shared<FloatText>(FloatText(tank.shpPlanet.getPosition(),1.5f, to_string(missle.getDamage() / 2) + "!", 1250, CLR::Red)));
+					vec_FloatText.push_back(make_shared<FloatText>(FloatText(tank.shpPlanet.getPosition(),1.5f, to_string(missle.getDamage() / 2) + "!", 1250, sf::Color::Red)));
 					vec_Bang.push_back(make_shared<Bang_Damage>(Bang_Damage(missle.shape.getPosition(), GetAngle(missle.shape, tank.shpPlanet), 500, 1)));
 					it = vec_Enemy_Missle.erase(it);
 				}
@@ -747,14 +747,14 @@ public:
 				else if(GetCollisionCircle(missle.shape, tank.shpWheel))
 				{
 					tank.ui.hit_point.Damage(missle.getDamage());
-					vec_FloatText.push_back(make_shared<FloatText>(FloatText(tank.shpWheel.getPosition(),2.f, to_string(missle.getDamage())+"!", 2000, CLR::Red)));
+					vec_FloatText.push_back(make_shared<FloatText>(FloatText(tank.shpWheel.getPosition(),2.f, to_string(missle.getDamage())+"!", 2000, sf::Color::Red)));
 					vec_Bang.push_back(make_shared<Bang_Damage>(Bang_Damage(missle.shape.getPosition(), GetAngle(missle.shape, tank.shpPlanet), 500, 1)));
 					it = vec_Enemy_Missle.erase(it);
 				}
 				// Попадание вражеской пули в силовое поле
 				else if(!tank.ui.world_shield.isEnd() && GetCollisionCircle(missle.shape, tank.ui.world_shield.shpShield[0]))
 				{
-					vec_FloatText.push_back(make_shared<FloatText>(FloatText(missle.shape.getPosition(),0.65f, "Absorb!", 1000, CLR::White)));
+					vec_FloatText.push_back(make_shared<FloatText>(FloatText(missle.shape.getPosition(),0.65f, "Absorb!", 1000, sf::Color::White)));
 					vec_Bang.push_back(make_shared<Bang_Damage>(Bang_Damage(missle.shape.getPosition(), GetAngle(missle.shape, tank.ui.world_shield.shpShield[0]), 500, 1)));
 					it = vec_Enemy_Missle.erase(it);
 				}
@@ -920,12 +920,12 @@ public:
 		SCursor.setPosition(cur_p);
 		if(!tank.ui.black_hole.isEnd()) 
 		{
-			SCursor.setFillColor(CLR(255,255,255,120));
+			SCursor.setFillColor(sf::Color(255,255,255,120));
 			SCursor.setScale(v2f(0.6,0.6));
 		}
 		else
 		{
-			SCursor.setFillColor(CLR::White);
+			SCursor.setFillColor(sf::Color::White);
 			SCursor.setScale(v2f(1,1));
 		}
 		wnd->draw(SCursor);

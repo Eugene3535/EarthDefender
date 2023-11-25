@@ -23,7 +23,7 @@ public:
 
 	//Shape shpEffect;
 
-	Enemy_Boss_03(v2f pos, v2f siz, float speed, float hp, uint level, IMG& img, string name, float timer_blink_animation, float timer_blink, const bool isBoss = false, const bool isHideHpBar = false) : 
+	Enemy_Boss_03(v2f pos, v2f siz, float speed, float hp, uint level, sf::Texture& img, string name, float timer_blink_animation, float timer_blink, const bool isBoss = false, const bool isHideHpBar = false) : 
 		oEnemy(pos, siz, speed, hp, level, img, name, isBoss, isHideHpBar), 
 		timer_blink_animation(timer_blink_animation),
 		TIMER_BLINK_ANIMATION(timer_blink_animation),
@@ -70,7 +70,7 @@ public:
 		if(timer_blink_animation > 0)
 		{
 			timer_blink_animation -= (time_enemy*speedUp);
-			shape.setFillColor(CLR(255,255,255,255 * (timer_blink_animation/TIMER_BLINK_ANIMATION)));
+			shape.setFillColor(sf::Color(255,255,255,255 * (timer_blink_animation/TIMER_BLINK_ANIMATION)));
 			shpEffect_Teleportation[0].rotate( 0.1*time);
 			shpEffect_Teleportation[1].rotate(-0.1*time);
 			
@@ -79,14 +79,14 @@ public:
 				timer_blink_animation = 0;
 				const int a = rand()%360;
 				shape.setPosition(GetNormalizedPosition(v2f(0,0), GetDistance(shape, v2f(0,0)), a));
-				shape.setFillColor(CLR(255,255,255,255));
+				shape.setFillColor(sf::Color(255,255,255,255));
 				angle = a + 180;
 				shape.setRotation(angle);
 				speed *= 1.1f;
 			}
 
-			const CLR &c = shpEffect_Portal.getFillColor();
-			shpEffect_Portal.setFillColor(CLR(c.r, c.g, c.b, 255 * (timer_blink_animation / TIMER_BLINK_ANIMATION)));
+			const sf::Color &c = shpEffect_Portal.getFillColor();
+			shpEffect_Portal.setFillColor(sf::Color(c.r, c.g, c.b, 255 * (timer_blink_animation / TIMER_BLINK_ANIMATION)));
 
 			for(int i = 0; i < 2; i++) shpEffect_Teleportation[i].setFillColor(shpEffect_Portal.getFillColor());
 		}

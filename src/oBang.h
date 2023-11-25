@@ -14,7 +14,7 @@ public:
 
 	Shape shape;
 
-	VertexBang(v2f pos, v2f siz, float speed, float angle, IMG& img) : speed(speed), angle(angle), isRotDir(rand()%2)
+	VertexBang(v2f pos, v2f siz, float speed, float angle, sf::Texture& img) : speed(speed), angle(angle), isRotDir(rand()%2)
 	{
 		ConstructShape(shape, pos, siz, img, false);
 	}
@@ -165,10 +165,10 @@ public:
 			vBang->Update();
 			if(timer > 0) 
 			{
-				vBang->shape.setFillColor(CLR(255,255,255,255*(timer/TIMER)));
+				vBang->shape.setFillColor(sf::Color(255,255,255,255*(timer/TIMER)));
 				for(int i = 0; i < 2; i++) 
 				{
-					shape[i].setFillColor(CLR(255,255,255,255*(timer/TIMER)));
+					shape[i].setFillColor(sf::Color(255,255,255,255*(timer/TIMER)));
 				}
 				shape[0].setScale(2-(timer/TIMER),2-(timer/TIMER));
 				shape[1].setScale(-2+(timer/TIMER),2-(timer/TIMER));
@@ -228,10 +228,10 @@ public:
 			vBang->Update();
 			if(timer > 0) 
 			{
-				vBang->shape.setFillColor(CLR(255,255,255,255*(timer/TIMER)));
+				vBang->shape.setFillColor(sf::Color(255,255,255,255*(timer/TIMER)));
 				for(int i = 0; i < 2; i++) 
 				{
-					shape[i].setFillColor(CLR(255,255,255,255*(timer/TIMER)));
+					shape[i].setFillColor(sf::Color(255,255,255,255*(timer/TIMER)));
 				}
 				shape[0].setScale(2-(timer/TIMER),2-(timer/TIMER));
 				shape[1].setScale(-2+(timer/TIMER),2-(timer/TIMER));
@@ -261,7 +261,7 @@ public:
 
 // языки пламени после взрыва
 
-class Flare : public B
+class Flare : public System
 {
 private:
 
@@ -273,7 +273,7 @@ public:
 
 	Shape shape[2];
 
-	Flare(v2f pos, float siz, float timer_life, float speed, IMG& img, float angle = rand()%360+1) 
+	Flare(v2f pos, float siz, float timer_life, float speed, sf::Texture& img, float angle = rand()%360+1) 
 		: T_LIFE(timer_life), t_life(timer_life), angle(angle), speed(speed)
 	{
 		for(int i = 0; i < 2; i++)
@@ -289,7 +289,7 @@ public:
 
 		for(int i = 0; i < 2; i ++)
 		{
-			shape[i].setFillColor(CLR(255,255,255,255 * scaler));
+			shape[i].setFillColor(sf::Color(255,255,255,255 * scaler));
 			shape[i].setScale(scaler, scaler);
 			MoveToAngle(shape[i], speed, angle, true);
 		}

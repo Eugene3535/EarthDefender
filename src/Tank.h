@@ -158,7 +158,7 @@ public:
 		ConstructShape(shpPlanet, v2f(0,0), v2f(radius, radius)*1.17f, texture->Earth[0]);
 		ConstructShape(shpAtmosphere, v2f(0,0), v2f(radius, radius)*1.4f, texture->Tank_Radius);
 		shpTurret.setOrigin(shpTurret.getSize().x/3.5f, shpTurret.getSize().y/2.f);
-		shpAtmosphere.setFillColor(CLR(140,140,255));
+		shpAtmosphere.setFillColor(sf::Color(140,140,255));
 	}
 
 	virtual void LevelUp() 
@@ -374,7 +374,7 @@ public:
 					if(!ui.multiple_attack.isEnd()) { angle = 30; c_bullet = 3; cost_shoot = 3; }
 					if(!ui.hight_overload.isEnd()) { cost_shoot = 0; }
 
-					auto Shoot = [c_bullet, angle] (vector<shared_ptr<oMissle>>& vec_Missle, Shape& shape, float& speed_missle, IMG& img) -> void
+					auto Shoot = [c_bullet, angle] (vector<shared_ptr<oMissle>>& vec_Missle, Shape& shape, float& speed_missle, sf::Texture& img) -> void
 					{
 						for(int i = c_bullet; i > 0; i--)
 						{
@@ -507,9 +507,9 @@ public:
 				{
 					isInstallTurrer = true;
 					ui.turret_defender.shpTurret.setPosition(ui.turret_defender.shpInstaller_A[i].getPosition());
-					ui.turret_defender.shpTurret.setFillColor(CLR::Green);
+					ui.turret_defender.shpTurret.setFillColor(sf::Color::Green);
 					ui.turret_defender.shpWheel.setPosition(ui.turret_defender.shpInstaller_A[i].getPosition());
-					ui.turret_defender.shpWheel.setFillColor(CLR::Green);
+					ui.turret_defender.shpWheel.setFillColor(sf::Color::Green);
 				}
 				else
 				{

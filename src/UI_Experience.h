@@ -30,7 +30,7 @@ public:
 		ConstructShape(shpPlato, v2f(-15,-43.25), v2f(3.2,3.2), texture->Bonus_Plato);
 		ConstructShape(shpLine, v2f(-13.25,-43.25), v2f(0,3.5), texture->UI_EXP_Line);
 		shpLine.setOrigin(0,shpLine.getOrigin().y);
-		ConstructText(text, shpBar.getPosition(), 1.65, "Level " + to_string(level) + " : " + to_string(int(this->experience)) + " / " + to_string(int(EXPERIENCE)) + " exp.", font_freshman, CLR::White);
+		ConstructText(text, shpBar.getPosition(), 1.65, "Level " + to_string(level) + " : " + to_string(int(this->experience)) + " / " + to_string(int(EXPERIENCE)) + " exp.", font_freshman, sf::Color::White);
 	}
 
 	virtual void Update()
@@ -62,7 +62,7 @@ public:
 		}
 		shpLine.setSize(v2f(sizex_line*(this->experience/EXPERIENCE), shpLine.getSize().y));
 		shpLine.setTextureRect(sf::IntRect(0,0,600*(this->experience/EXPERIENCE),40));
-		ConstructText(text, shpBar.getPosition(), 2.f, "Level " + to_string(level) + " : " + to_string(int(this->experience)) + " of " + to_string(int(EXPERIENCE)) + " exp.", font_freshman, CLR::White);
+		ConstructText(text, shpBar.getPosition(), 2.f, "Level " + to_string(level) + " : " + to_string(int(this->experience)) + " of " + to_string(int(EXPERIENCE)) + " exp.", font_freshman, sf::Color::White);
 		if(l < level) return true;
 		return false;
 	}

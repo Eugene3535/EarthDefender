@@ -17,7 +17,7 @@ protected:
 
 public:
 
-Enemy_Blink(v2f pos, v2f siz, float speed, uint hp, uint lvl, IMG & img, string name, float timer_blink, float timer_blink_animation) 
+Enemy_Blink(v2f pos, v2f siz, float speed, uint hp, uint lvl, sf::Texture& img, string name, float timer_blink, float timer_blink_animation) 
 	: oEnemy(pos, siz, speed, hp, lvl, img, name), 
 	TIMER_BLINK(timer_blink), timer_blink(timer_blink),
 	TIMER_BLINK_ANIMATION(timer_blink_animation), timer_blink_animation(timer_blink_animation)
@@ -38,7 +38,7 @@ virtual void Update()
 	if(timer_blink_animation > 0)
 	{
 		timer_blink_animation -= time_enemy;  // time_enemy * speedUP если ускоряется
-		shape.setFillColor(CLR(255,255,255,255 * (timer_blink_animation/TIMER_BLINK_ANIMATION)));
+		shape.setFillColor(sf::Color(255,255,255,255 * (timer_blink_animation/TIMER_BLINK_ANIMATION)));
 		shpBlinkEffect[0].rotate( 0.1*time);
 		shpBlinkEffect[1].rotate(-0.1*time);
 		
@@ -47,14 +47,14 @@ virtual void Update()
 			timer_blink_animation = 0;
 			const int a = rand()%360;
 			shape.setPosition(GetNormalizedPosition(v2f(0,0), GetDistance(shape, v2f(0,0)), a));
-			shape.setFillColor(CLR(255,255,255,255));
+			shape.setFillColor(sf::Color(255,255,255,255));
 			angle = a + 180;
 			shape.setRotation(angle);
 			speed *= 1.1f;
 		}
 
-		const CLR &c = shpBlinkPortal.getFillColor();
-		shpBlinkPortal.setFillColor(CLR(c.r, c.g, c.b, 255 * (timer_blink_animation / TIMER_BLINK_ANIMATION)));
+		const sf::Color &c = shpBlinkPortal.getFillColor();
+		shpBlinkPortal.setFillColor(sf::Color(c.r, c.g, c.b, 255 * (timer_blink_animation / TIMER_BLINK_ANIMATION)));
 
 		for(int i = 0; i < 2; i++) shpBlinkEffect[i].setFillColor(shpBlinkPortal.getFillColor());
 	}

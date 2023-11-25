@@ -1,7 +1,7 @@
 #pragma once
 #include "System.h"
 
-class Bonus : public B
+class Bonus : public System
 {
 protected:
 

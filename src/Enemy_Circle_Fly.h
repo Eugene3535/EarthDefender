@@ -12,7 +12,7 @@ private:
 
 public:
 
-	Enemy_Circle_Fly(v2f pos, v2f siz, float speed, float hp, const int level, IMG& img, string name) 
+	Enemy_Circle_Fly(v2f pos, v2f siz, float speed, float hp, const int level, sf::Texture& img, string name) 
 		: 
 		oEnemy(pos, siz, speed, hp, level, img, name),
 		DIST_START_TO_PLANET(GetDistance(pos*scr_1, v2f())),

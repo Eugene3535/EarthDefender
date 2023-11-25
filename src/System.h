@@ -6,15 +6,15 @@ class System
 {
 public:
 
-	System(bool init);
-	System();
+	System(bool init = false);
+	
 	static void SystemTime();
 
-	static void ConstructShape(Shape& shp, v2f pos, v2f siz, IMG& png, const bool perc_pos = true);
+	static void ConstructShape(Shape& shp, v2f pos, v2f siz, sf::Texture& png, const bool perc_pos = true);
 	static void ConstructShape(Shape& shp, v2f pos, v2f siz, const bool perc_pos = true);
-	static void ConstructShape(Shape& shp, v2f pos, v2f siz, CLR clr, bool perc_pos = true);
+	static void ConstructShape(Shape& shp, v2f pos, v2f siz, sf::Color color, bool perc_pos = true);
 
-	static void ConstructText(sf::Text& text, v2f pos, float siz, sf::String str, sf::Font* font, CLR col = CLR());
+	static void ConstructText(sf::Text& text, v2f pos, float siz, sf::String str, sf::Font* font, sf::Color col = sf::Color());
 	static void CenteringText(sf::Text& text);
 
 public:

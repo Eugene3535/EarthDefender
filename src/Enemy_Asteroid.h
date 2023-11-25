@@ -10,7 +10,7 @@ protected:
 
 public:
 
-	Enemy_Asteroid(v2f pos, v2f siz, float speed, float hp, const int level, IMG& img, string name, const bool isBoss = false, const bool isHideHpBar = false) : 
+	Enemy_Asteroid(v2f pos, v2f siz, float speed, float hp, const int level, sf::Texture& img, string name, const bool isBoss = false, const bool isHideHpBar = false) : 
 		oEnemy(pos, siz, speed, hp, level, img, name, isBoss, isHideHpBar), isRotDir(rand()%6), rotSpeed(0.06)
 	{
 	}

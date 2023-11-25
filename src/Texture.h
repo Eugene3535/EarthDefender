@@ -3,7 +3,7 @@
 
 class Texture
 {
-public: IMG
+public: sf::Texture
 
 	// UI
 
@@ -117,7 +117,7 @@ public: IMG
 	Universe1, 
 	Universe2;
 
-	inline void Load(IMG& texture, const string& file)
+	inline void Load(sf::Texture& texture, const string& file)
 	{
 		texture.loadFromFile("res/Texture/"+file);
 	}

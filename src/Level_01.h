@@ -90,7 +90,7 @@ public:
 				if(WAVE_PART_MAX <= wave_part) { wave_num++; wave_part = 1; }
 				else wave_part++;
 				const v2f& tpos = tank.shpPlanet.getPosition();
-				ConstructText(text_wave_name, v2f(tpos.x, tpos.y + (scr_1 * 20)), 6.f, sf::String("WAVE " + to_string(wave_num) + " OF 3 : PART " + to_string(wave_part) + " OF " + to_string(WAVE_PART_MAX) + "."), font_freshman, CLR::Red);
+				ConstructText(text_wave_name, v2f(tpos.x, tpos.y + (scr_1 * 20)), 6.f, sf::String("WAVE " + to_string(wave_num) + " OF 3 : PART " + to_string(wave_part) + " OF " + to_string(WAVE_PART_MAX) + "."), font_freshman, sf::Color::Red);
 				vec_Enemy.clear();
 				vec_Enemy_Missle.clear();
 			}
@@ -146,8 +146,8 @@ public:
 		if(isBossCreateTime) CreateBoss();	// Триггер появления босса
 		if(isBossLife) BossLife();			// Пока босс жив
 
-		const CLR c = text_wave_name.getColor();
-		text_wave_name.setColor(CLR(c.r, c.g, c.b, 255 * timer_alpha_wname/6000.f));
+		const sf::Color c = text_wave_name.getColor();
+		text_wave_name.setColor(sf::Color(c.r, c.g, c.b, 255 * timer_alpha_wname/6000.f));
 
 		oLevel::Update();
 	}

@@ -3,7 +3,7 @@
 #include "SpecEffect.h"
 #include "oUI_Ability.h"
 
-class Main_Menu : public B
+class Main_Menu : public System
 {
 private:
 
@@ -68,7 +68,7 @@ public:
 		ConstructShape(shpHelp, v2f(26, -29), v2f(21,10), texture->UI_Text_Help);
 		ConstructShape(shpGameName, v2f(0,-45), v2f(85,12), texture->UI_Text_The_Planet_Rescuer);
 
-		shpCircle.setFillColor(CLR(140,140,255));
+		shpCircle.setFillColor(sf::Color(140,140,255));
 		shpTurret.setOrigin(shpTurret.getSize().x/3.5f, shpTurret.getSize().y/2.f);
 		shpTurret.setRotation(GetAngle(shpTurret, shpPlanet));
 		shpWheel.setRotation(GetAngle(shpTurret, shpPlanet)+180);
@@ -131,7 +131,7 @@ public:
 	{
 		static float alpha = 0;
 		alpha += 0.001*time;
-		shpHelp.setFillColor(CLR(140,140,255, abs(cos(alpha)*255)));
+		shpHelp.setFillColor(sf::Color(140,140,255, abs(cos(alpha)*255)));
 		timer_create_turbo += time;
 		timer_animation_planet += time;
 		if(timer_animation_planet > 16)

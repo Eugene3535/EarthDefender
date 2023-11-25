@@ -5,11 +5,11 @@ class Star_01 : public oStar
 {
 public:
 
-	Star_01(v2f pos, v2f siz, float speed, IMG& img) : oStar(pos, siz, speed, img)
+	Star_01(v2f pos, v2f siz, float speed, sf::Texture& img) : oStar(pos, siz, speed, img)
 	{
 		rot = 0.1;
 		for(int i = 0; i < 2; i++) 
-			shape[i].setFillColor(CLR(rand()%255, rand()%255, rand()%255, 100));
+			shape[i].setFillColor(sf::Color(rand()%255, rand()%255, rand()%255, 100));
 	}
 
 	virtual void Update()

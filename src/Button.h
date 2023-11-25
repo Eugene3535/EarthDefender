@@ -27,14 +27,14 @@ protected:
 
 public:
 
-	Button(v2f pos, v2f siz, IMG& img, const sf::String& str_text, const sf::String str_id) :
+	Button(v2f pos, v2f siz, sf::Texture& img, const sf::String& str_text, const sf::String str_id) :
 		name_id(str_id),
 		is_Inside(false), 
 		is_Click(false)
 	{
 		ConstructShape(shape, pos, siz, img, true);
 		ConstructShape(glow, pos, siz, texture->UI_Ico, true);
-		ConstructText(text, shape.getPosition(), siz.y/2.f, str_text, font_freshman, CLR(180,180,180));
+		ConstructText(text, shape.getPosition(), siz.y/2.f, str_text, font_freshman, sf::Color(180,180,180));
 	}
 
 	virtual ~Button(void)
@@ -43,7 +43,7 @@ public:
 
 	virtual void Update()
 	{
-		is_Inside ? text.setColor(CLR(0,200,155)) : text.setColor(CLR(180,180,180));
+		is_Inside ? text.setColor(sf::Color(0,200,155)) : text.setColor(sf::Color(180,180,180));
 	}
 
 	virtual void Draw()
@@ -103,7 +103,7 @@ public:
 		return name_id;
 	}
 
-	virtual void setFillColor(CLR color)
+	virtual void setFillColor(sf::Color color)
 	{
 		shape.setFillColor(color);
 	}
@@ -120,7 +120,7 @@ private:
 	float alpha;
 public:
 
-	Button_Float(v2f pos, v2f siz, IMG& texture, const sf::String& str_text,const sf::String& str_id) : 
+	Button_Float(v2f pos, v2f siz, sf::Texture& texture, const sf::String& str_text,const sf::String& str_id) : 
 		Button(pos, siz, texture, str_text, str_id), 
 		pos_deft(shape.getPosition()), 
 		alpha(0)
@@ -155,7 +155,7 @@ class Button_Picked :
 {
 public:
 
-	Button_Picked(v2f pos, v2f siz, IMG& texture, const sf::String& str_text,const sf::String& str_id) : 
+	Button_Picked(v2f pos, v2f siz, sf::Texture& texture, const sf::String& str_text,const sf::String& str_id) : 
 		Button(pos, siz, texture, str_text, str_id){}
 
 	virtual void Update()
@@ -163,13 +163,13 @@ public:
 		Button::Update();
 		if(is_Inside)
 		{
-			shape.setFillColor(CLR::Green);
-			text.setColor(CLR(0,200,155));
+			shape.setFillColor(sf::Color::Green);
+			text.setColor(sf::Color(0,200,155));
 		}
 		else
 		{
-			shape.setFillColor(CLR::White);
-			text.setColor(CLR(180,180,180));
+			shape.setFillColor(sf::Color::White);
+			text.setColor(sf::Color(180,180,180));
 		}
 	}
 

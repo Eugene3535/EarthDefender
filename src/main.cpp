@@ -1,2 +1,8 @@
 #include "Game.h"
-void main () { Game play; }
+
+int main() 
+{ 
+	Game play; 
+
+	return 0;
+}
