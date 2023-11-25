@@ -158,6 +158,65 @@ void System::CenteringText(sf::Text& text)
 	text.setOrigin(text.getGlobalBounds().width / 2.f, text.getGlobalBounds().height / 1.5f);
 }
 
+float System::sine(float angle)
+{
+    static std::vector<float> table;
+
+    if (table.empty())
+    {
+        table.resize(360, 0.0f);
+
+        for (int i = 0; i < 360; ++i)     
+            table[i] = sin(static_cast<float>(i) * DEGTORAD);
+    }
+    
+    return table[static_cast<std::size_t>(angle)];
+}
+
+
+float System::cosine(float angle)
+{
+    static std::vector<float> table;
+
+    if (table.empty())
+    {
+        table.resize(360, 0.0f);
+
+        for (int i = 0; i < 360; ++i)     
+            table[i] = cos(static_cast<float>(i) * DEGTORAD);
+    }
+
+    return table[static_cast<std::size_t>(angle)];
+}
+
+
+void System::setSpriteSize(sf::Sprite& sprite, float width, float height)
+{
+    const auto& rect = sprite.getTextureRect();
+
+	if (rect.width && rect.height)
+	{
+		float dx = width / std::abs(rect.width);
+		float dy = height / std::abs(rect.height);
+		sprite.setScale(dx, dy);
+	}
+}
+
+
+void System::setSpriteSize(sf::Sprite& sprite, const sf::Vector2f& size)
+{
+	setSpriteSize(sprite, size.x, size.y);
+}
+
+
+sf::Vector2f System::getSpriteSize(const sf::Sprite& sprite)
+{
+	const auto& rect  = sprite.getTextureRect();
+	const auto& scale = sprite.getScale();
+
+	return { rect.width * scale.x, rect.height * scale.y };
+}
+
 System::System(bool init)
 {
 	if(init)
@@ -177,6 +236,7 @@ System::System(bool init)
 		wnd = new sf::RenderWindow(sf::VideoMode(scr_W,scr_H), "Game", sf::Style::Default, sf::ContextSettings(0,0,32));
 		texture = new Texture();
 		audio = new Audio();
+
 		audio->setVolMusic(0);
 		ConstructShape(SCursor, cur_p, v2f(4,4), texture->UI_Cursor);
 		texture->setSmoth(true);
@@ -188,8 +248,12 @@ System::System(bool init)
 		cur_p = v2f(0,0);
 		wnd->setView(cam);
 		wnd->setMouseCursorVisible(false);
-		wnd->setFramerateLimit(60);
+//		wnd->setFramerateLimit(60); // Release fps = ~640
 		srand(::time(0));
 		clock.restart();
 	}
+}
+
+System::~System()
+{
 }

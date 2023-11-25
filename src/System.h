@@ -7,6 +7,7 @@ class System
 public:
 
 	System(bool init = false);
+	~System();
 	
 	static void SystemTime();
 
@@ -16,6 +17,15 @@ public:
 
 	static void ConstructText(sf::Text& text, v2f pos, float siz, sf::String str, sf::Font* font, sf::Color col = sf::Color());
 	static void CenteringText(sf::Text& text);
+
+	static float sine(float angle);
+    static float cosine(float angle);
+
+    // Allows to set size of sprites in pixels( instead of scale)
+	static void setSpriteSize(sf::Sprite& sprite, float width, float height);
+	static void setSpriteSize(sf::Sprite& sprite, const sf::Vector2f& size);
+
+	static sf::Vector2f getSpriteSize(const sf::Sprite& sprite);
 
 public:
 

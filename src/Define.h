@@ -8,6 +8,9 @@
 #define DEG 57.29582
 #define RAD 0.017453
 
+#define DEGTORAD 0.017453f
+#define RADTODEG 57.29577f
+
 #include "SettingsConfig.h"
 #include <sstream>
 #include <iostream>
