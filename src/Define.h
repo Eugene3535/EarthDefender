@@ -20,7 +20,7 @@
 #include <Windows.h>
 
 class System;
-typedef System B; // Для быстрого доступа к полям и методам Basis прописывай B::
+typedef System B; // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ Basis пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ B::
 
 using std::cout;
 using std::endl;
@@ -32,7 +32,7 @@ using std::sinf;
 using std::atanf;
 using std::make_shared;
 
-using std::auto_ptr;
+// using std::auto_ptr;
 using std::vector;
 using std::string;
 using std::shared_ptr;

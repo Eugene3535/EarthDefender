@@ -6,8 +6,8 @@ class System
 {
 public:
 
-	System(void* init);
-	System(void);
+	System(bool init);
+	System();
 	static void SystemTime();
 
 	static void ConstructShape(Shape& shp, v2f pos, v2f siz, IMG& png, const bool perc_pos = true);

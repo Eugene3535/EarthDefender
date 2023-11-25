@@ -119,7 +119,7 @@ public: IMG
 
 	inline void Load(IMG& texture, const string& file)
 	{
-		texture.loadFromFile("Resources/Texture/"+file);
+		texture.loadFromFile("res/Texture/"+file);
 	}
 
 public: 

@@ -1,6 +1,6 @@
 #include "System.h"
-// Вражеские пули наносят вдвое меньший урон планете
-// Атака танка равна 3 + (tank.level / 4);
+// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+// пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ 3 + (tank.level / 4);
 
 SettingsConfig			B::settings_config;
 sf::RenderWindow*		B::wnd;
@@ -160,11 +160,11 @@ void B::CenteringText(sf::Text& text)
 	text.setOrigin(text.getGlobalBounds().width / 2.f, text.getGlobalBounds().height / 1.5f);
 }
 
-B::System(void){}
+B::System(){}
 
-B::System(void* init)
+B::System(bool init)
 {
-	if(init == "init")
+	if(init)
 	{
 		// Load configuration
 		settings_config.is_cam_static = true;
@@ -178,22 +178,21 @@ B::System(void* init)
 		time_in_pause = 0;
 		time = 0;
 
-		texture = new Texture;
-		audio = new Audio;
+		wnd = new sf::RenderWindow(sf::VideoMode(scr_W,scr_H), "Game", sf::Style::Default, sf::ContextSettings(0,0,32));
+		texture = new Texture();
+		audio = new Audio();
 		audio->setVolMusic(0);
 		ConstructShape(SCursor, cur_p, v2f(4,4), texture->UI_Cursor);
 		texture->setSmoth(true);
 		font_freshman = new sf::Font;
-		font_freshman->loadFromFile("Resources/Font/freshman.ttf");
-
-		wnd = new sf::RenderWindow(sf::VideoMode(scr_W,scr_H), "Game", sf::Style::Default, sf::ContextSettings(0,0,32));
+		font_freshman->loadFromFile("res/Font/freshman.ttf");
 		cam.reset(sf::FloatRect(0, 0, float(scr_W), float(scr_H)));
 		cam.setCenter(0,0);
 		cam_p = cam.getCenter();
 		cur_p = v2f(0,0);
 		wnd->setView(cam);
 		wnd->setMouseCursorVisible(false);
-		//wnd->setFramerateLimit(100);
+//		wnd->setFramerateLimit(60);
 		srand(::time(0));
 		clock.restart();
 	}

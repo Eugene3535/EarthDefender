@@ -5,7 +5,7 @@
 #include<thread>
 #include<mutex>
 
-class Game : public B
+class Game : public System
 {
 private:
 
@@ -16,7 +16,7 @@ public:
 
 	sf::Thread* thread;
 
-	Game() : System("init")
+	Game() : System(true)
 	{
 		gState = main_menu;
 		vec_MainMenu.push_back(make_shared<Main_Menu>(Main_Menu()));

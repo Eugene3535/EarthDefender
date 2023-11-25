@@ -60,13 +60,13 @@ private:
 
 	inline void LoadSound(string file, sf::Sound& s, sf::SoundBuffer& b)
 	{
-		b.loadFromFile("Resources/Sounds/"+file);
+		b.loadFromFile("res/Sounds/"+file);
 		s.setBuffer(b);
 	}
 
 	inline void LoadMusic(string file, sf::Music& m)
 	{
-		m.openFromFile("Resources/Music/"+file);
+		m.openFromFile("res/Music/"+file);
 		m.setLoop(true);
 	}
 };

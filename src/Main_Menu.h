@@ -41,7 +41,7 @@ private:
 
 public:
 
-	// Надо бы записывать и считывать данные о состоянии меню в файл
+	// пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ
 
 	Main_Menu() : timer_animation_planet(0), frame_count(0), timer_create_turbo(0), timer_animation_tank(0), frame_tank(0), mmState(main), is_Start_Pressed(false),
 		double_damage(0, 1),
@@ -58,7 +58,7 @@ public:
 		black_hole(0, 1)
 	{
 
-		// Сконструировали фигуру планеты одев на неё текстуру указав её позицию и размер
+		// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 		ConstructShape(shpPlanet, v2f(53,-35), v2f(25,25), texture->Earth[0]); 
 
 		ConstructShape(shpWheel, v2f(-40, 35), v2f(15,15), texture->Tank_Wheel); shpWheel.setTextureRect(sf::IntRect(0,0,168,168));
@@ -75,7 +75,7 @@ public:
 
 
 		vec_BG.push_back(make_shared<BackGround>(BackGround()));
-		GoToMain(); // Создаём кнопки главного меню
+		GoToMain(); // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
 
 		vec_EnemyShape.push_back(make_shared<Shape>(Shape()));
 		ConstructShape(*vec_EnemyShape.back(), v2f(100,100), v2f(6,3.1), texture->Enemy[1]);
@@ -181,11 +181,11 @@ public:
 			bg->Update();
 		}
 
-		// Кнопки главного меню
+		// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
 		for(auto b : vec_Button_Main) b->Update();
-		// Кнопки настроек
+		// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 		for(auto b : vec_Button_Settings) b->Update();
-		// Кнопки настроек Graphics
+		// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ Graphics
 		for(auto b : vec_Button_Graphics) b->Update();
 
 		if(is_Start_Pressed)
@@ -229,7 +229,7 @@ public:
 
 	virtual void Action()
 	{
-		// UI В Основном меню
+		// UI пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
 		for(auto b : vec_Button_Main)
 		{
 			if(b->isActivate())
@@ -255,7 +255,7 @@ public:
 			}
 		}
 
-		// UI В выборе настроек
+		// UI пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 		for(auto b : vec_Button_Settings)
 		{
 			if(b->isActivate())
@@ -281,7 +281,7 @@ public:
 			}
 		}
 
-		// UI С настройками графики
+		// UI пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 		for(auto b : vec_Button_Graphics)
 		{
 			if(b->isActivate())

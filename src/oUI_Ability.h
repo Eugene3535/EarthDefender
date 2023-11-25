@@ -2,7 +2,7 @@
 #include "System.h"
 
 //////////////////////////////////////////////
-// Класс всплывающей подсказки способностей //
+// пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ //
 //////////////////////////////////////////////
 
 class UI_Ability_Description : public B
@@ -35,7 +35,7 @@ public:
 };
 
 ////////////////////////////
-// Спецэффект "Звёздочки" //
+// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ" //
 ////////////////////////////
 
 class Effect_Upgrade_Star : public B
@@ -77,7 +77,7 @@ public:
 
 
 ///////////////////////////////////////////////
-// Абстрактный класс интерфейса способностей //
+// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ //
 ///////////////////////////////////////////////
 
 class oUI_Ability : public B
@@ -296,8 +296,8 @@ public:
 
 		if(isLanguageRU)
 		{
-			if(isDecor) strLevelNeed = sf::String(L"Замок мешает прочитать это описание.\nУлучшите это усиление в игре один раз\nчтобы снять блокировку.\nТребуется ") + sf::String(to_string(level_Need)) + L" уровень.\n\n";
-			else strLevelNeed = L"Требуется уровень: " + sf::String(to_string(level_Need)) + L"\nПропуск уровня: " + sf::String(to_string(level_Skip)) + L"\n\n";
+			if(isDecor) strLevelNeed = sf::String(L"пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ\nпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ ") + sf::String(to_string(level_Need)) + L" пїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\n\n";
+			else strLevelNeed = L"пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: " + sf::String(to_string(level_Need)) + L"\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: " + sf::String(to_string(level_Skip)) + L"\n\n";
 		}
 		else
 		{
@@ -322,8 +322,8 @@ public:
 
 		if(isLanguageRU)
 		{
-			if(isDecor) strDuration = L"\n\nБольшинство пойманных усилений\nактивируются автоматически.\n.";
-			else strDuration = L"\n\nВремя действия: " + sf::String(s_dur) + L" сек.\nУлучшение добавит +" + sf::String(s_dur_p) + L" сек. к действию.";
+			if(isDecor) strDuration = L"\n\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\n.";
+			else strDuration = L"\n\nпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ: " + sf::String(s_dur) + L" пїЅпїЅпїЅ.\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ +" + sf::String(s_dur_p) + L" пїЅпїЅпїЅ. пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.";
 		}
 		else 
 		{
@@ -341,7 +341,7 @@ sf::String oUI_Ability::strLevelNeed;
 sf::String oUI_Ability::strLevelCur;
 
 ////////////////////////
-// Стрельба в разброс //
+// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ //
 ////////////////////////
 
 class UI_Ability_Multiple_Attack : public oUI_Ability
@@ -368,7 +368,7 @@ public:
 	virtual void LevelUp(int& upgp)
 	{
 		oUI_Ability::LevelUp(upgp);
-		// Доп конфигурации способности
+		// пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	}
 
 	virtual void Run() 
@@ -391,7 +391,7 @@ public:
 	virtual void Draw()
 	{
 		StringsReset();
-		if(isLanguageRU) DescriptionReset(strLevelCur + strLevelNeed + L"Усилитель позволяет стрелять тремя снарядами\nодновременно, направляя их в разные стороны.\nНаносимый урон на 30% меньше обычного." + strDuration);
+		if(isLanguageRU) DescriptionReset(strLevelCur + strLevelNeed + L"пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ 30% пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ." + strDuration);
 		else DescriptionReset(strLevelCur + strLevelNeed + L"The amplifier allows to shoot with 3 shards\nin the same time in different directions.\nDamage is 30% lower the initial one." + strDuration);
 		oUI_Ability::Draw();
 	}
@@ -400,7 +400,7 @@ public:
 };
 
 /////////////////////////////////
-// Стрельба без затрат энергии //
+// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ //
 /////////////////////////////////
 
 class UI_Ability_Hight_Overload : public oUI_Ability
@@ -427,7 +427,7 @@ public:
 	virtual void LevelUp(int& upgp)
 	{
 		oUI_Ability::LevelUp(upgp);
-		// Доп конфигурации способности
+		// пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	}
 
 	virtual bool isEnd() 
@@ -450,7 +450,7 @@ public:
 	virtual void Draw()
 	{
 		StringsReset();
-		if(isLanguageRU) DescriptionReset(strLevelCur + strLevelNeed + L"Перегружает ядро батареи питания\nдля временной стрельбы без затрат энергии." + strDuration);
+		if(isLanguageRU) DescriptionReset(strLevelCur + strLevelNeed + L"пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ\nпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ." + strDuration);
 		else DescriptionReset(strLevelCur + strLevelNeed + L"Activates an battery-core which allows\nto shoot without any energy use." + strDuration);
 		oUI_Ability::Draw();
 	}
@@ -459,7 +459,7 @@ public:
 };
 
 //////////////////////////
-// Неуязвимость планеты //
+// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ //
 //////////////////////////
 
 class UI_Ability_World_Shield : public oUI_Ability
@@ -504,7 +504,7 @@ public:
 	virtual void LevelUp(int& upgp)
 	{
 		oUI_Ability::LevelUp(upgp);
-		// Доп конфигурации способности
+		// пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	}
 
 	virtual bool isEnd() 
@@ -527,7 +527,7 @@ public:
 	virtual void Draw()
 	{
 		StringsReset();
-		if(isLanguageRU) DescriptionReset(strLevelCur + strLevelNeed + L"Покрывает землю неуязвимым энерго-щитом.\nБлокирует все атаки противников\nи мгновенно уничтожает врага при столкновении.\nНе действует на вражеских боссов." + strDuration);
+		if(isLanguageRU) DescriptionReset(strLevelCur + strLevelNeed + L"пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ-пїЅпїЅпїЅпїЅпїЅ.\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\nпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\nпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ." + strDuration);
 		else DescriptionReset(strLevelCur + strLevelNeed + L"Covers the Earth with strong unbreakable shield.\nIt blocks all attacks of the enemy and\ndestroys them if they collide into it." + strDuration);
 		oUI_Ability::Draw();
 	}
@@ -536,7 +536,7 @@ public:
 };
 
 //////////////////
-// Двойной урон //
+// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ //
 //////////////////
 
 class UI_Ability_Double_Damage : public oUI_Ability
@@ -563,7 +563,7 @@ public:
 	virtual void LevelUp(int& upgp)
 	{
 		oUI_Ability::LevelUp(upgp);
-		// Доп конфигурации способности
+		// пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	}
 
 	virtual bool isEnd() 
@@ -586,7 +586,7 @@ public:
 	virtual void Draw()
 	{
 		StringsReset();
-		if(isLanguageRU) DescriptionReset(strLevelCur + strLevelNeed + L"Под действием этого усиления ваши атаки наносят двойной урон.\nНе распространяется на \"Защитную установку\"\nи космолёты союзников." + strDuration);
+		if(isLanguageRU) DescriptionReset(strLevelCur + strLevelNeed + L"пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ.\nпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ \"пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\"\nпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ." + strDuration);
 		else DescriptionReset(strLevelCur + strLevelNeed + L"Your attacks do double damage. Allows you to quickly\ndestroy opponents with accurate shots." + strDuration);
 		oUI_Ability::Draw();
 	}
@@ -595,7 +595,7 @@ public:
 };
 
 ///////////////////////////////////////
-// Замедление пространства и времени //
+// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ //
 ///////////////////////////////////////
 
 class UI_Ability_Time_Slow : public oUI_Ability
@@ -622,7 +622,7 @@ public:
 	virtual void LevelUp(int& upgp)
 	{
 		oUI_Ability::LevelUp(upgp);
-		// Доп конфигурации способности
+		// пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	}
 
 	virtual void Run() 
@@ -645,7 +645,7 @@ public:
 	virtual void Draw()
 	{
 		StringsReset();
-		if(isLanguageRU) DescriptionReset(strLevelCur + strLevelNeed + L"Глобальное замедление всех инопланетных кораблей и их снарядов.\nЭто позволяет не торопиться и хорошенько прицелиться." + strDuration);
+		if(isLanguageRU) DescriptionReset(strLevelCur + strLevelNeed + L"пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\nпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ." + strDuration);
 		else DescriptionReset(strLevelCur + strLevelNeed + L"Global slows down all enemy alien spaceships\nand their shards. This makes aiming easier." + strDuration);
 		oUI_Ability::Draw();
 	}
@@ -655,7 +655,7 @@ public:
 
 
 /////////////////////////////////////////
-// Осколочный взрыв от убийства врагов //
+// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ //
 /////////////////////////////////////////
 
 class UI_Ability_Fragment_Explosion : public oUI_Ability
@@ -682,7 +682,7 @@ public:
 	virtual void LevelUp(int& upgp)
 	{
 		oUI_Ability::LevelUp(upgp);
-		// Доп конфигурации способности
+		// пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	}
 
 	virtual void Run() 
@@ -705,7 +705,7 @@ public:
 	virtual void Draw()
 	{
 		StringsReset();
-		if(isLanguageRU) DescriptionReset(strLevelCur + strLevelNeed + L"При уничтожении врагов под воздействием этого усиления\nразрывает их на осколки, которые продолжают наносить\nурон инопланетным кораблям." + strDuration + L" и добавляет +1 осколок.");
+		if(isLanguageRU) DescriptionReset(strLevelCur + strLevelNeed + L"пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\nпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ." + strDuration + L" пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ +1 пїЅпїЅпїЅпїЅпїЅпїЅпїЅ.");
 		else DescriptionReset(strLevelCur + strLevelNeed + L"After using this amplifier any enemy spaceship\nthat get destroyed sends debris hurling towards\nenemy space ships and dealing damage." + strDuration + "and +1 shard.");
 		oUI_Ability::Draw();
 	}
@@ -714,7 +714,7 @@ public:
 };
 
 ///////////////////
-// Взрыв-рикошет //
+// пїЅпїЅпїЅпїЅпїЅ-пїЅпїЅпїЅпїЅпїЅпїЅпїЅ //
 ///////////////////
 
 class UI_Ability_Splash_Ricochet : public oUI_Ability
@@ -741,7 +741,7 @@ public:
 	virtual void LevelUp(int& upgp)
 	{
 		oUI_Ability::LevelUp(upgp);
-		// Доп конфигурации способности
+		// пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	}
 
 	virtual void Run() 
@@ -764,7 +764,7 @@ public:
 	virtual void Draw()
 	{
 		StringsReset();
-		if(isLanguageRU) DescriptionReset(strLevelCur + strLevelNeed + L"Мощное оружие для уничтожения крупных скоплений инопланетян.\nВаш снаряды взрываются при столкновении и рикошетят\nпродолжая наносить мощный урон." + strDuration);
+		if(isLanguageRU) DescriptionReset(strLevelCur + strLevelNeed + L"пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\nпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ." + strDuration);
 		else DescriptionReset(strLevelCur + strLevelNeed + L"Powerful weapon for eliminating large groups of aliens.\nYour projectile ricochets of targets and\ndeals massive damage to any enemies around." + strDuration);
 		oUI_Ability::Draw();
 	}
@@ -773,7 +773,7 @@ public:
 };
 
 ////////////////
-// Сигнал SOS //
+// пїЅпїЅпїЅпїЅпїЅпїЅ SOS //
 ////////////////
 
 class UI_Ability_Signal_SOS : public oUI_Ability
@@ -800,7 +800,7 @@ public:
 	virtual void LevelUp(int& upgp)
 	{
 		oUI_Ability::LevelUp(upgp);
-		// Доп конфигурации способности
+		// пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	}
 
 	virtual bool isEnd() 
@@ -823,7 +823,7 @@ public:
 	virtual void Draw()
 	{
 		StringsReset();
-		if(isLanguageRU) DescriptionReset(strLevelCur + strLevelNeed + L"Хорошо что есть и добрые существа во вселенной.\nЭтот усилитель призывает на помощь союзные космолёты\nатакующие врагов на своём пути.\n\nПризыв " + sf::String(to_string(level)) + L" космолётов.\n\nУлучшение увеличивает кол-во призываемых космолётов на 1 ед.");
+		if(isLanguageRU) DescriptionReset(strLevelCur + strLevelNeed + L"пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\nпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ.\n\nпїЅпїЅпїЅпїЅпїЅпїЅ " + sf::String(to_string(level)) + L" пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\n\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ-пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ 1 пїЅпїЅ.");
 		else DescriptionReset(strLevelCur + strLevelNeed + L"Luckily there are friendly creatures in the universe!\nThe amplifier summons allied spaceships who attack\nthe enemy on their way.\n\nSummons ships " + sf::String(to_string(level)) + L".\n\nImproving increases the number of summoned ships by 1.");
 		oUI_Ability::Draw();
 	}
@@ -832,7 +832,7 @@ public:
 };
 
 //////////////////////
-// Стрельба плазмой //
+// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ //
 //////////////////////
 
 class UI_Ability_Plasm_Attack : public oUI_Ability
@@ -859,7 +859,7 @@ public:
 	virtual void LevelUp(int& upgp)
 	{
 		oUI_Ability::LevelUp(upgp);
-		// Доп конфигурации способности
+		// пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	}
 
 	virtual void Run() 
@@ -882,7 +882,7 @@ public:
 	virtual void Draw()
 	{
 		StringsReset();
-		if(isLanguageRU) DescriptionReset(strLevelCur + strLevelNeed + L"Плазменный усилитель улучшает ваше оружие, повышает\nскорость стрельбы, но меткость немного ухудшается.\nЭкономно расходует энергию." + strDuration);
+		if(isLanguageRU) DescriptionReset(strLevelCur + strLevelNeed + L"пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ." + strDuration);
 		else DescriptionReset(strLevelCur + strLevelNeed + L"The plasmic amplifier upgrades your weapon by\nincreasing the fire rate but slightly lowering the accuracy." + strDuration);
 		oUI_Ability::Draw();
 	}
@@ -891,7 +891,7 @@ public:
 };
 
 //////////////////////////////////////////////
-// Иллюзия танка на противоположной стороне //
+// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ //
 //////////////////////////////////////////////
 
 class UI_Ability_Mirror_Tank : public oUI_Ability
@@ -918,7 +918,7 @@ public:
 	virtual void LevelUp(int& upgp)
 	{
 		oUI_Ability::LevelUp(upgp);
-		// Доп конфигурации способности
+		// пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	}
 
 	virtual void Run() 
@@ -941,7 +941,7 @@ public:
 	virtual void Draw()
 	{
 		StringsReset();
-		if(isLanguageRU) DescriptionReset(strLevelCur + strLevelNeed + L"Создаёт хроно танк с зеркальным поведением\nна противоположной стороне планеты.\nКоторый повторяет все ваши действия." + strDuration);
+		if(isLanguageRU) DescriptionReset(strLevelCur + strLevelNeed + L"пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\nпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ." + strDuration);
 		else DescriptionReset(strLevelCur + strLevelNeed + L"Creates a chrono-tank which mirrors all your\nactions on the other side of a planet." + strDuration);
 		oUI_Ability::Draw();
 	}
@@ -950,7 +950,7 @@ public:
 };
 
 ////////////////////////
-// Защитная установка //
+// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ //
 ////////////////////////
 
 class UI_Ability_Turret : public oUI_Ability
@@ -1019,7 +1019,7 @@ public:
 	virtual void LevelUp(int& upgp)
 	{
 		oUI_Ability::LevelUp(upgp);
-		// Доп конфигурации способности
+		// пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	}
 
 	virtual void Run() 
@@ -1033,7 +1033,7 @@ public:
 	virtual void Draw()
 	{
 		StringsReset();
-		if(isLanguageRU) DescriptionReset(strLevelCur + strLevelNeed + L"Накапливает заряды которые позволяют однократно\nустановить защитную установку.\nЕсли заряды есть в наличии, нажмите ПКМ,\nи установите установку  нажав ЛКМ на одной из четырёх платформ." + strDuration);
+		if(isLanguageRU) DescriptionReset(strLevelCur + strLevelNeed + L"пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.\nпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ,\nпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ  пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ." + strDuration);
 		else DescriptionReset(strLevelCur + strLevelNeed + L"Accumulates charges for the defence station.\nWhen charges are available right click\nto build a station on one of the four platforms." + strDuration);
 		wnd->draw(shpIco);
 		wnd->draw(shpPlato);
@@ -1110,7 +1110,7 @@ public:
 	virtual void LevelUp(int& upgp)
 	{
 		oUI_Ability::LevelUp(upgp);
-		// Доп конфигурации способности
+		// пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	}
 
 	virtual void Run() 
@@ -1135,8 +1135,8 @@ public:
 		StringsReset();
 		if(isLanguageRU) 
 		{
-			if(isDecor) DescriptionReset(strLevelCur + strLevelNeed + L"Ва* п*иц** п*****щае** в а***ог\nче**** д***, ******но*ение к вр*ам\n*ян*т их в сторону чер*** д***\nи *ан**и* пе**од**е*к** ур**." + strDuration + L"\nповышает наносимый урон и физ. размер.");
-			else DescriptionReset(strLevelCur + strLevelNeed + L"Ваш прицел превращается в аналог\nчерной дыры, прикосновение к врагам\nтянет их в сторону черной дыры\nи наносит переодический урон." + strDuration + L"\nповышает наносимый урон и физ. размер.");
+			if(isDecor) DescriptionReset(strLevelCur + strLevelNeed + L"пїЅпїЅ* пїЅ*пїЅпїЅ** пїЅ*****пїЅпїЅпїЅ** пїЅ пїЅ***пїЅпїЅ\nпїЅпїЅ**** пїЅ***, ******пїЅпїЅ*пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅ*пїЅпїЅ\n*пїЅпїЅ*пїЅ пїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ*** пїЅ***\nпїЅ *пїЅпїЅ**пїЅ* пїЅпїЅ**пїЅпїЅ**пїЅ*пїЅ** пїЅпїЅ**." + strDuration + L"\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅ.");
+			else DescriptionReset(strLevelCur + strLevelNeed + L"пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ\nпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ\nпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ\nпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ." + strDuration + L"\nпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅ. пїЅпїЅпїЅпїЅпїЅпїЅ.");
 		}
 		else 
 		{
