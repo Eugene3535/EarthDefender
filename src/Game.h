@@ -22,8 +22,44 @@ public:
 		vec_MainMenu.push_back(make_shared<Main_Menu>(Main_Menu()));
 		time = 0;
 		wnd->setActive(false);
-		thread = new sf::Thread(&Game :: Thread, this);
-		thread->launch();
+		//thread = new sf::Thread(&Game :: Thread, this);
+		//thread->launch();
+
+		Thread();
+
+		// while (wnd->isOpen())
+		// {
+		// 	while(wnd->pollEvent(event))
+		// 	{
+		// 		if(event.type == sf::Event::Closed) wnd->close();
+
+		// 		switch (gState)
+		// 		{
+		// 			case System::main_menu:
+
+		// 				for(auto menu: vec_MainMenu) menu->Action();
+
+		// 				break;
+
+		// 			case System::game:
+
+		// 				if(!vec_MainMenu.empty()) vec_MainMenu.clear();
+		// 				for(auto level: vec_Level) level->Action(); 
+
+		// 				break;
+		// 		}
+		// 	}
+		// 	sf::sleep(sf::milliseconds(50));
+		// }
+
+		//thread->terminate();
+	}
+
+	void Thread()
+	{
+		sf::Text text_fps;
+		int counter_frame = 0;
+		float timer = 0;
 
 		while (wnd->isOpen())
 		{
@@ -47,18 +83,7 @@ public:
 						break;
 				}
 			}
-			sf::sleep(sf::milliseconds(50));
-		}
-	}
 
-	void Thread()
-	{
-		sf::Text text_fps;
-		int counter_frame = 0;
-		float timer = 0;
-
-		while (wnd->isOpen())
-		{
 			cur_p = wnd->mapPixelToCoords(sf::Mouse::getPosition(*wnd));
 			SystemTime();
 			timer+=time;

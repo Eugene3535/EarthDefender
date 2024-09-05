@@ -5,69 +5,72 @@
 class BackGround : public System
 {
 private:
-
-	float timer_star_create;			// Таймер создания звезд
-	float timer_galaxy_create;			// Таймер создания галактик
-	float alpha;						// 
+	float timer_star_create;   // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+	float timer_galaxy_create; // пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+	float alpha;			   //
 	Shape shpUniverse1, shpUniverse2;
 
 public:
-
 	vector<shared_ptr<oStar>> vec_Star;
 
 	BackGround() : timer_star_create(0), timer_galaxy_create(0), alpha(0)
 	{
-		ConstructShape(shpUniverse1, v2f(0,0), v2f(scr_W, scr_W)/scr_1*2.f, texture->Universe1, false);
-		ConstructShape(shpUniverse2, v2f(0,0), v2f(scr_W, scr_W)/scr_1*2.f, texture->Universe2, false);
-		for(int i = 0; i < 180; i++) 
+		ConstructShape(shpUniverse1, v2f(0, 0), v2f(scr_W, scr_W) / scr_1 * 2.f, texture->Universe1, false);
+		ConstructShape(shpUniverse2, v2f(0, 0), v2f(scr_W, scr_W) / scr_1 * 2.f, texture->Universe2, false);
+		for (int i = 0; i < 180; i++)
 		{
-			const v2f size = v2f(1,1)*float(rand()%5+1);
-			vec_Star.push_back(make_shared<Star_01>(Star_01(v2f(rand()%scr_W-(scr_W/2),rand()%scr_W-(scr_W/2)), size, float((rand()%6+8)*(size.x*0.0003f)), texture->BG_Star[rand()%10])));
+			const v2f size = v2f(1, 1) * float(rand() % 5 + 1);
+			vec_Star.push_back(make_shared<Star_01>(Star_01(v2f(rand() % scr_W - (scr_W / 2), rand() % scr_W - (scr_W / 2)), size, float((rand() % 6 + 8) * (size.x * 0.0003f)), texture->BG_Star[rand() % 10])));
 		}
 	}
 
 	virtual void Update()
 	{
-		const float C = cos(alpha);
-		const float S = sin(alpha);
-		const sf::Color color(255 * (1.f+-S)/2.f, 255 * (1.f+-C)/2.f, 255 * (1.f+-cos(alpha/2))/2.f, 50);
-		shpUniverse1.setRotation((-C*10) + 45);
-		shpUniverse1.setScale(v2f(1+(-C/5),1+(-S/5)));
-		shpUniverse1.setPosition(v2f(-C,-S)*(15*scr_1));
+		const float cosine = cos(alpha);
+		const float sine = sin(alpha);
 
-		shpUniverse2.setRotation((C*10) + 45);
-		shpUniverse2.setScale(v2f(1+(C/5),1+(S/5)));
-		shpUniverse2.setFillColor(sf::Color(color.b,color.r,color.g,175));
-		shpUniverse2.setPosition(v2f(C,S)*(15*scr_1));
+		const sf::Color color(255 * (1.f + -sine) * 0.5f, 255 * (1.f + -cosine) * 0.5f, 255 * (1.f + -cos(alpha / 2)) * 0.5f, 175);
 
-		alpha += 0.00015*time;
+		shpUniverse1.setRotation((-cosine * 10) + 45);
+		shpUniverse1.setScale(v2f(1 + (-cosine / 5), 1 + (-sine / 5)));
+		shpUniverse1.setPosition(v2f(-cosine, -sine) * (15 * scr_1));
 
-		if(timer_star_create >= 60)
+		shpUniverse2.setRotation((cosine * 10) + 45);
+		shpUniverse2.setScale(v2f(1 + (cosine / 5), 1 + (sine / 5)));
+		shpUniverse2.setFillColor(color);
+		shpUniverse2.setPosition(v2f(cosine, sine) * (15 * scr_1));
+
+		alpha += 0.00015f * time;
+
+		if (timer_star_create >= 60)
 		{
 			timer_star_create = 0;
-			const v2f size = v2f(1,1)*float(rand()%4+2);
-			vec_Star.push_back(make_shared<Star_01>(Star_01(v2f(rand()%scr_W-(scr_W/2),-scr_W/2), size, float((rand()%6+8)*(size.x*0.0003f)), texture->BG_Star[rand()%10])));
+			const v2f size = v2f(1, 1) * float(rand() % 4 + 2);
+			vec_Star.push_back(make_shared<Star_01>(Star_01(v2f(rand() % scr_W - (scr_W / 2), -scr_W / 2), size, float((rand() % 6 + 8) * (size.x * 0.0003f)), texture->BG_Star[rand() % 10])));
 		}
-		else  timer_star_create += time_enemy;
+		else
+			timer_star_create += time_enemy;
 
-		if(timer_galaxy_create <= 0)
+		if (timer_galaxy_create <= 0)
 		{
-			timer_galaxy_create = rand()%6000+8000;
-			const v2f size = v2f(1,1)*float(rand()%20+20);
-			int rnd = rand()%20;
-			vec_Star.push_back(make_shared<Star_02>(Star_02(v2f(rand()%scr_W-(scr_W/2),-scr_W/2), size, float((rand()%4+8))*0.001f, texture->BG_Galaxy[rnd])));
+			timer_galaxy_create = rand() % 6000 + 8000;
+			const v2f size = v2f(1, 1) * float(rand() % 20 + 20);
+			int rnd = rand() % 20;
+			vec_Star.push_back(make_shared<Star_02>(Star_02(v2f(rand() % scr_W - (scr_W / 2), -scr_W / 2), size, float((rand() % 4 + 8)) * 0.001f, texture->BG_Galaxy[rnd])));
 		}
-		else timer_galaxy_create -= time_enemy;
+		else
+			timer_galaxy_create -= time_enemy;
 
-		for(auto& it = vec_Star.begin(); it != vec_Star.end();)
+		for (auto &it = vec_Star.begin(); it != vec_Star.end();)
 		{
-			auto& star = *(*it);
-			if(GetDistance(star.shape[0], cam_p) < scr_W*1.5)
+			auto &star = *(*it);
+			if (GetDistance(star.shape[0], cam_p) < scr_W * 1.5)
 			{
 				star.Update();
 				it++;
 			}
-			else it = vec_Star.erase(it);
+			else
+				it = vec_Star.erase(it);
 		}
 	}
 
@@ -75,8 +78,9 @@ public:
 	{
 		wnd->draw(shpUniverse1);
 		wnd->draw(shpUniverse2);
-		for(auto& star: vec_Star) star->Draw();
+		for (auto &star : vec_Star)
+			star->Draw();
 	}
 
-	virtual ~BackGround() { }
+	virtual ~BackGround() {}
 };

@@ -36,7 +36,7 @@ sf::FloatRect System::getVisible()
 
 void System::SystemTime()
 {
-	time = float(clock.getElapsedTime().asMicroseconds() / 1000.f), clock.restart();
+	time = float(clock.getElapsedTime().asMilliseconds()), clock.restart();
 	time_enemy = time;
 	cam_p = cam.getCenter();
 	if(!isPauseGame) time_in_pause = time;
@@ -173,7 +173,6 @@ float System::sine(float angle)
     return table[static_cast<std::size_t>(angle)];
 }
 
-
 float System::cosine(float angle)
 {
     static std::vector<float> table;
@@ -189,7 +188,6 @@ float System::cosine(float angle)
     return table[static_cast<std::size_t>(angle)];
 }
 
-
 void System::setSpriteSize(sf::Sprite& sprite, float width, float height)
 {
     const auto& rect = sprite.getTextureRect();
@@ -202,12 +200,10 @@ void System::setSpriteSize(sf::Sprite& sprite, float width, float height)
 	}
 }
 
-
 void System::setSpriteSize(sf::Sprite& sprite, const sf::Vector2f& size)
 {
 	setSpriteSize(sprite, size.x, size.y);
 }
-
 
 sf::Vector2f System::getSpriteSize(const sf::Sprite& sprite)
 {
