@@ -49,7 +49,7 @@ public:
 		}
 		
 		
-		for(auto& missle = vec_Missle.begin(); missle != vec_Missle.end();)
+		for(auto missle = vec_Missle.begin(); missle != vec_Missle.end();)
 		{
 			Missle& m = *(*missle);
 			if(shape.getGlobalBounds().intersects(getVisible()))

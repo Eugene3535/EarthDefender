@@ -2,10 +2,10 @@
 #include "Turret_Defender.h"
 #include "UI_Tank.h"
 
-// В 1900 году население Земли составляло 1,6 миллиардов
-// В 1950 – 2,5 миллиарда
-// население Земли достигло отметки 7 миллиардов 2011г 31 октября
-// 2017 год составляет больше 7,5 миллиардов
+// пїЅ 1900 пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ 1,6 пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+// пїЅ 1950 пїЅ 2,5 пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ 7 пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ 2011пїЅ 31 пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+// 2017 пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ 7,5 пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
 class MirrorTank : public System
 {
@@ -95,12 +95,12 @@ private:
 	int frame;
 	float timer_animation_tank;
 
-	// Характеристики танка
+	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 	
-	float speed_move;					// Скорость вращения
-	float speed_missle;					// Скорость снарядов
-	int damage;							// Урон танка
-	float timer_animation_planet;		// Таймер анимации
+	float speed_move;					// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+	float speed_missle;					// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+	int damage;							// пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+	float timer_animation_planet;		// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	int frame_count;
 	bool isInstallTurrer;
 	bool is_LKM;
@@ -109,7 +109,7 @@ private:
 
 public:
 
-	int max_chance_type_bonus; // Ограничитель по выпаду бонусов для непрокачанных способностей
+	int max_chance_type_bonus; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 	int upgrage_point;
 	MirrorTank mirror;
 	UI_Tank ui;
@@ -238,7 +238,7 @@ public:
 						Shape& installer = defender.shpInstaller_A[i];
 						if(GetDistance(installer, cur_p) < installer.getSize().x/2.f)
 						{
-							for(auto& it = vec_Turret_Defender.begin(); it != vec_Turret_Defender.end(); it++)
+							for(auto it = vec_Turret_Defender.begin(); it != vec_Turret_Defender.end(); it++)
 							{
 								if(GetDistance((*it)->shpWheel, cur_p) < installer.getSize().x/2.f) isNoInstall = false;
 							}
@@ -291,7 +291,7 @@ public:
 
 		if(is_LKM)
 		{
-			// Стрельба плазмой
+			// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 			if(!ui.plasm_attack.isEnd())
 			{
 				timer_Plasm_Shoot -= time;
@@ -304,7 +304,7 @@ public:
 					if(!ui.multiple_attack.isEnd()) { angle = 30; cost_shoot = 0.50; }
 					if(ui.energy_point.getCurrent() > cost_shoot)
 					{
-						if(ui.multiple_attack.isEnd()) // Если тройная струя выключена
+						if(ui.multiple_attack.isEnd()) // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 						{
 							if(ui.splash_ricochet.isEnd())
 							{
@@ -329,7 +329,7 @@ public:
 								}
 							}
 						}
-						else // включена тройная атака
+						else // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 						{
 							for(int i = 0; i < 3; i++)
 							{
@@ -361,7 +361,7 @@ public:
 					}
 				}
 			}
-			else // Обычная стрельба
+			else // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 			{
 				timer_Standart_Shoot -= time;
 				if(timer_Standart_Shoot < 0)
@@ -408,7 +408,7 @@ public:
 			}
 		}
 		
-		for(auto& it = vec_Turret_Defender.begin(); it != vec_Turret_Defender.end();)
+		for(auto it = vec_Turret_Defender.begin(); it != vec_Turret_Defender.end();)
 		{
 			auto& defender = *(*it);
 			if(!defender.IsEnd())
@@ -530,7 +530,7 @@ public:
 
 		shpPlanet.rotate(0.01*time);
 
-		for(auto& it = vec_Missle.begin(); it != vec_Missle.end();)
+		for(auto it = vec_Missle.begin(); it != vec_Missle.end();)
 		{
 			auto& missle = *(*it);
 			if(GetDistance(missle.shape, cam_p) < scr_W*1.5)
@@ -549,7 +549,7 @@ public:
 
 		if(upgrage_point > 0) 
 		{
-			// Если уровень танка достиг требуемого уровня прокачки, то показываем ПЛЮС и ЗВЕЗДОЧКИ
+			// пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ, пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 			if( this->level >= ui.multiple_attack.GetLevelUpTrue())		ui.multiple_attack.Effect_Update();
 			if( this->level >= ui.hight_overload.GetLevelUpTrue())		ui.hight_overload.Effect_Update();
 			if( this->level >= ui.world_shield.GetLevelUpTrue())		ui.world_shield.Effect_Update();

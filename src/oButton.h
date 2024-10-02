@@ -17,7 +17,7 @@ public:
 	Shape shpText;
 	Shape shape;
 
-	oButton::oButton(v2f pos, v2f siz, sf::Texture& img, sf::Texture& text, const sf::String str_id) :
+	oButton(v2f pos, v2f siz, sf::Texture& img, sf::Texture& text, const sf::String str_id) :
 		name_id(str_id),
 		is_Inside(false), 
 		is_Click(false)
@@ -102,7 +102,7 @@ public:
 	}
 };
 
-// Класс плавающей кнопки
+// пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 
 class Button_Float : public oButton
 {
@@ -141,7 +141,7 @@ public:
 	~Button_Float(void){}
 };
 
-// Класс кнопки с возможностью выбора
+// пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 
 class Button_Picked : public oButton
 {
@@ -170,7 +170,7 @@ public:
 	~Button_Picked(void){}
 };
 
-// Обыкновенная кнопка
+// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 
 class Button_YN : public oButton
 {

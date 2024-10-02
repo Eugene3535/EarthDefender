@@ -4,15 +4,15 @@ class Level_01 : public oLevel
 {
 private:
 
-	float timer_start_wave;		// Время между спавнами волн
-	uint WAVE_PART_MAX;			// Частей нападения в волне
-	uint wave_num;				// Номер текущей волны
-	uint WAVE_NUM_END;			// Всего волн на уровне
-	uint wave_part;				// Номер части волны
+	float timer_start_wave;		// пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
+	uint WAVE_PART_MAX;			// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ
+	uint wave_num;				// пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+	uint WAVE_NUM_END;			// пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+	uint wave_part;				// пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 
-	float timer_alpha_wname;	// Время на полное исчезновение текста названия волны
-	bool isBossLife;			// Босс жив
-	bool isBossCreateTime;		// Настало время босса
+	float timer_alpha_wname;	// пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+	bool isBossLife;			// пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ
+	bool isBossCreateTime;		// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 
 public:
 
@@ -51,7 +51,7 @@ public:
 	inline void BossLife()
 	{
 		bool kill_boss = true;
-		for(auto& it = vec_Enemy.begin(); it != vec_Enemy.end();)
+		for(auto it = vec_Enemy.begin(); it != vec_Enemy.end();)
 		{
 			auto& enemy = *(*it);
 			if(enemy.isBoss) kill_boss = false;
@@ -73,17 +73,17 @@ public:
 
 	virtual void Update()
 	{
-		// Если приветствие закончилось и список врагов пуст
+		// пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
 		if(level_Name.IsEndPreview() && vec_Enemy.empty()) timer_start_wave -= time;
 
 		if(timer_alpha_wname > 0) timer_alpha_wname -= time;
 		else timer_alpha_wname = 0;
 
-		// Логика волн нападений
+		// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 		if(timer_start_wave <= 0)
 		{
 			timer_alpha_wname = 6000;
-			timer_start_wave = 6000; // Таймер 6 секунд до следующей волны (Если все враги были повержены или это первая волна)
+			timer_start_wave = 6000; // пїЅпїЅпїЅпїЅпїЅпїЅ 6 пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ (пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ)
 
 			if(vec_Enemy.empty()) 
 			{
@@ -143,8 +143,8 @@ public:
 		}
 
 
-		if(isBossCreateTime) CreateBoss();	// Триггер появления босса
-		if(isBossLife) BossLife();			// Пока босс жив
+		if(isBossCreateTime) CreateBoss();	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+		if(isBossLife) BossLife();			// пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ
 
 		const sf::Color c = text_wave_name.getColor();
 		text_wave_name.setColor(sf::Color(c.r, c.g, c.b, 255 * timer_alpha_wname/6000.f));

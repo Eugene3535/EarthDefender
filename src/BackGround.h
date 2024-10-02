@@ -61,7 +61,7 @@ public:
 		else
 			timer_galaxy_create -= time_enemy;
 
-		for (auto &it = vec_Star.begin(); it != vec_Star.end();)
+		for (auto it = vec_Star.begin(); it != vec_Star.end();)
 		{
 			auto &star = *(*it);
 			if (GetDistance(star.shape[0], cam_p) < scr_W * 1.5)

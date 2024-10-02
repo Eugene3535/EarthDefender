@@ -156,7 +156,7 @@ public:
 			vec_Effect_Star.push_back(make_shared<Effect_Upgrade_Star>(Effect_Upgrade_Star(shpUpgrade.getPosition())));
 		}
 
-		for(auto& it = vec_Effect_Star.begin(); it != vec_Effect_Star.end();)
+		for(auto it = vec_Effect_Star.begin(); it != vec_Effect_Star.end();)
 		{
 			auto& effect = *(*it);
 			if(!effect.IsEnd())

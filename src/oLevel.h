@@ -16,7 +16,7 @@
 #include "Signal_SOS_Unit.h"
 #include "BlackHole.h"
 
-// Добавить способность призывающую добрых нло
+// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ
 
 
 class LevelName : public System
@@ -61,7 +61,7 @@ public:
 			timer_create = 0;
 		}
 
-		for(auto& it = vec_Missle_E.begin(); it != vec_Missle_E.end();)
+		for(auto it = vec_Missle_E.begin(); it != vec_Missle_E.end();)
 		{
 			oMissle& missle = *(*it);
 			if(GetDistance(missle.shape, cam_p) < scr_W*1.5) 
@@ -89,7 +89,7 @@ public:
 
 	virtual bool IsEndPreview() 
 	{
-		timer_preview = 0; // Стереть к релизу
+		timer_preview = 0; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 		return timer_preview == 0 ? true : false; 
 	}
 
@@ -155,8 +155,8 @@ class oLevel : public System
 {
 protected:
 
-	sf::Text text_wave_name;	// Названия волны
-	LevelName level_Name;		// Приветствие уровня
+	sf::Text text_wave_name;	// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+	LevelName level_Name;		// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 
 	Tank tank;
 	BackGround background;
@@ -202,40 +202,40 @@ public:
 
 	virtual void AddDropChanceBonus(oEnemy& enemy)
 	{
-		string type; // Тип бонуса
-		int chance_type = rand()%tank.max_chance_type_bonus;		// Определение типа бонуса
-		// Повышаем шанс на выпад бонуса
+		string type; // пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+		int chance_type = rand()%tank.max_chance_type_bonus;		// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+		// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 		int drop_add = (enemy.GetLevel() * 16) - (tank.level / 6);
-		// минимальный ограничитель
+		// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 		if(drop_add < 10) drop_add = 10;
 
 		if(tank.ui.chance_drop.IsDrop(drop_add)) 
 		{
-			if(chance_type < 10 ) type = "heal";				// Хилка
-			else if(chance_type < 20 ) type = "energy";			// Энергия
-			else if(chance_type < 30 ) type = "experience";		// Опыт
-			else if(chance_type < 40 ) type = "multiple";		// ДД
-			else if(chance_type < 50 ) type = "overload";		// Стрельба без затрат энергии
-			else if(chance_type < 60 ) type = "shield";			// Замедление
-			else if(chance_type < 70 ) type = "power";			// Многоструйность
-			else if(chance_type < 80 ) type = "slow";			// Разрывные снаряды
-			else if(chance_type < 90 ) type = "shards";			// Защитное поле планеты
-			else if(chance_type < 100 ) type = "explosive";		// иллюзия танка
-			else if(chance_type < 110 ) type = "signal_sos";	// Взрыв с рикошетом
-			else if(chance_type < 120 ) type = "plasm";			// Сигнал SOS
-			else if(chance_type < 130 ) type = "chrono";		// Защитная установка
-			else if(chance_type < 140 ) type = "turret";		// Атака плазмой
-			else if(chance_type <= 150 ) type = "blackhole";	// Черная дыра
+			if(chance_type < 10 ) type = "heal";				// пїЅпїЅпїЅпїЅпїЅ
+			else if(chance_type < 20 ) type = "energy";			// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+			else if(chance_type < 30 ) type = "experience";		// пїЅпїЅпїЅпїЅ
+			else if(chance_type < 40 ) type = "multiple";		// пїЅпїЅ
+			else if(chance_type < 50 ) type = "overload";		// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+			else if(chance_type < 60 ) type = "shield";			// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+			else if(chance_type < 70 ) type = "power";			// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+			else if(chance_type < 80 ) type = "slow";			// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+			else if(chance_type < 90 ) type = "shards";			// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+			else if(chance_type < 100 ) type = "explosive";		// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+			else if(chance_type < 110 ) type = "signal_sos";	// пїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+			else if(chance_type < 120 ) type = "plasm";			// пїЅпїЅпїЅпїЅпїЅпїЅ SOS
+			else if(chance_type < 130 ) type = "chrono";		// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+			else if(chance_type < 140 ) type = "turret";		// пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+			else if(chance_type <= 150 ) type = "blackhole";	// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
 
 			vec_Bonus.push_back(make_shared<Bonus>(Bonus(enemy.shape.getPosition(), 0.025f, type)));
 		}
 
-		// Добавляем плавающий текст получения бонуса "Опыт и его кол-во"
+		// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ "пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅ пїЅпїЅпїЅ-пїЅпїЅ"
 		vec_FloatText.push_back(make_shared<FloatText>(FloatText(enemy.shape.getPosition(),1.5f, "EXP +" + to_string(enemy.GetLevel()*36), 2000, sf::Color(180, 0, 165))));
-		if(tank.ui.experience.addExp(enemy.GetLevel() * 36)) // Если апнули уровень
+		if(tank.ui.experience.addExp(enemy.GetLevel() * 36)) // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 		{
 			tank.LevelUp();
-			// Добавляем плавающий текст получения нового уровня
+			// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 			vec_FloatText.push_back(make_shared<FloatText>(FloatText(tank.shpWheel.getPosition(),3.5f, "LVL UP" + to_string(tank.getLevel()) + "!", 4000, sf::Color::Green)));
 		}
 	}
@@ -334,7 +334,7 @@ public:
 
 	virtual void Update()
 	{
-		// Условие поражения
+		// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 		// if(tank.ui.people.people <= 0 || tank.ui.hit_point.getCurrent() <= 0) isDefeat = true;
 
 		level_Name.Update();
@@ -358,14 +358,14 @@ public:
 
 		if(!isWin && !isDefeat)
 		{
-			// Столкновение снарядов игрока и врагов
-			for(auto& it1 = vec_SOS_Unit.begin(); it1 != vec_SOS_Unit.end();)
+			// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+			for(auto it1 = vec_SOS_Unit.begin(); it1 != vec_SOS_Unit.end();)
 			{
 				auto& sos_u = *(*it1);
 				for(auto& it2 : vec_Enemy)
 				{
 					auto& e = *it2;
-					for(auto& it3 = sos_u.vec_Missle.begin(); it3 != sos_u.vec_Missle.end();)
+					for(auto it3 = sos_u.vec_Missle.begin(); it3 != sos_u.vec_Missle.end();)
 					{
 						auto& m = *(*it3);
 						if(GetCollisionCircle(e.shape, m.shape))
@@ -385,10 +385,10 @@ public:
 				sos_u.Update();
 			}
 
-			for(auto& it1 = tank.vec_Missle.begin(); it1 != tank.vec_Missle.end();)
+			for(auto it1 = tank.vec_Missle.begin(); it1 != tank.vec_Missle.end();)
 			{
 				auto& missle_t = *(*it1);
-				for(auto& it2 = vec_Enemy_Missle.begin(); it2 != vec_Enemy_Missle.end();)
+				for(auto it2 = vec_Enemy_Missle.begin(); it2 != vec_Enemy_Missle.end();)
 				{
 					auto& missle_e = *(*it2);
 					if(GetCollisionCircle(missle_t.shape, missle_e.shape))
@@ -401,7 +401,7 @@ public:
 				it1++;
 			}
 
-			// Действие замедления
+			// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 			if(!tank.ui.time_slow.isEnd())
 			{
 				timer_cleate_mirror_spec_effect += time;
@@ -414,7 +414,7 @@ public:
 				}
 			}
 
-			for(auto& it = vec_Mirror_Spec_Effect.begin();  it != vec_Mirror_Spec_Effect.end();)
+			for(auto it = vec_Mirror_Spec_Effect.begin();  it != vec_Mirror_Spec_Effect.end();)
 			{
 				auto& mirror = *(*it);
 				if(!mirror.getKill()) 
@@ -426,7 +426,7 @@ public:
 				else it = vec_Mirror_Spec_Effect.erase(it);
 			}
 
-			for(auto& it = vec_Flare.begin(); it != vec_Flare.end();)
+			for(auto it = vec_Flare.begin(); it != vec_Flare.end();)
 			{
 				auto& flare = *(*it);
 				if(flare.IsEnd())
@@ -439,15 +439,15 @@ public:
 					it++;
 				}
 			}
-			// Проходимся по всем летящим бонусам
-			for(auto& it = vec_Bonus.begin(); it != vec_Bonus.end();)
+			// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+			for(auto it = vec_Bonus.begin(); it != vec_Bonus.end();)
 			{
 				auto& bonus = *(*it);
 
-				// Если танк подобрал бонус
+				// пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 				if(GetCollisionCircle(bonus.shpPlato, tank.shpWheel))
 				{
-					// Если это бонус опыта
+					// пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 					if(bonus.GetType() == "experience")
 					{
 						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, -scr_1*40, cam.getRotation()),2.25f, "Exp +" + to_string((tank.level * 18) + 36) + "!", 2000, sf::Color(180, 0, 165))));
@@ -456,79 +456,79 @@ public:
 							tank.LevelUp();
 						}
 					}
-					// Неуязвимость
+					// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 					else if(bonus.GetType() == "shield")
 					{
 						tank.ui.world_shield.Run();
 						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-24),2.25f, "Shield!", 1200, sf::Color::White)));
 					}
-					// Многоструйная атака
+					// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 					else if(bonus.GetType() == "multiple")
 					{
 						tank.ui.multiple_attack.Run();
 						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-48),2.25f, "Multiple!", 1200, sf::Color::Cyan)));
 					}
-					// Замедление времени
+					// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 					else if(bonus.GetType() == "slow")
 					{
 						tank.ui.time_slow.Run();
 						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-72),2.25f, "Slow!", 1200, sf::Color(255, 20, 252))));
 					}
-					// Двойной урон
+					// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
 					else if(bonus.GetType() == "power")
 					{
 						tank.ui.double_damage.Run();
 						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-96),2.25f, "Power!", 1200, sf::Color::Blue)));
 					}
-					// Нескончаемая энергия
+					// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 					else if(bonus.GetType() == "overload")
 					{
 						tank.ui.hight_overload.Run();
 						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-120),2.25f, "Overload!", 1200, sf::Color(255, 102, 0))));
 					}
-					// Разрыв врагов при убийстве
+					// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 					else if(bonus.GetType() == "shards")
 					{
 						tank.ui.fragment_explosion.Run();
 						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-144),2.25f, "Shards!", 1200, sf::Color(204, 255, 153))));
 					}
-					// Хронотанк
+					// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 					else if(bonus.GetType() == "chrono")
 					{
 						tank.ui.mirror_tank.Run();
 						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-168),2.25f, "Chrono!", 1200, sf::Color(204, 102, 153))));
 					}
-					// Взрывные снаряды с рикошетом
+					// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 					else if(bonus.GetType() == "explosive")
 					{
 						tank.ui.splash_ricochet.Run();
 						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-192),2.25f, "Explosive!", 1200, sf::Color::Red)));
 					}
-					// Атака плазмой
+					// пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 					else if(bonus.GetType() == "plasm")
 					{
 						tank.ui.plasm_attack.Run();
 						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-216),2.25f, "Plasm!", 1200, sf::Color(0, 153, 255))));
 					}
-					// Защитная установка
+					// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 					else if(bonus.GetType() == "turret")
 					{
 						tank.ui.turret_defender.KeepTime();
 						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-240),2.25f, "Turret +1", 1200, sf::Color::Yellow)));
 					}
-					// Пополнение энергии
+					// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 					else if(bonus.GetType() == "energy")
 					{
 						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-264),2.25f, "Energy +" + to_string(int(tank.ui.energy_point.getMax()/10)), 1200, sf::Color(102, 153, 255))));
 						tank.ui.energy_point.Regen(tank.ui.energy_point.getMax()/10);
 					}
-					// Пополнение здоровья
+					// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 					else if(bonus.GetType() == "heal")
 					{
 						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-288),2.25f, "Heal +" + to_string(int(tank.ui.hit_point.getMax()/10)), 1200, sf::Color::Green)));
 						tank.ui.hit_point.Regen(tank.ui.hit_point.getMax()/10);
 					}
-					// Сигнал SOS
+					// пїЅпїЅпїЅпїЅпїЅпїЅ SOS
 					else if(bonus.GetType() == "signal_sos")
 					{
 						
@@ -540,7 +540,7 @@ public:
 						vec_FloatText.push_back(make_shared<FloatText>(FloatText(GetNormalizedPosition(tank.shpPlanet, scr_1*25, cam.getRotation()-312),2.25f, "SOS!", 1200, sf::Color::Magenta)));
 						tank.ui.signal_sos.Run();
 					}
-					// Черная дыра
+					// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
 					else if(bonus.GetType() == "blackhole")
 					{
 						tank.ui.black_hole.Run();
@@ -551,7 +551,7 @@ public:
 				}
 				else
 				{
-					// Двигаем бонусы к танку
+					// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅ
 					bonus.Update(GetAngle(bonus.shpBonus, tank.shpWheel));
 					if(GetDistance(bonus.shpPlato, cam_p) < scr_W*1.5) it++;
 					else it = vec_Bonus.erase(it);
@@ -561,7 +561,7 @@ public:
 			tank.Update(!vec_Enemy.empty());
 			tank.ui.Update(!vec_Enemy.empty());
 			
-			for(auto& it = vec_Splash_Ricochet.begin(); it != vec_Splash_Ricochet.end();)
+			for(auto it = vec_Splash_Ricochet.begin(); it != vec_Splash_Ricochet.end();)
 			{
 				Bang_Ricochet& ricochet = *(*it);
 
@@ -580,15 +580,15 @@ public:
 
 			const float damage_BH = black_Hole.GetDamage();
 
-			for(auto& it1 = vec_Enemy.begin(); it1 != vec_Enemy.end();)
+			for(auto it1 = vec_Enemy.begin(); it1 != vec_Enemy.end();)
 			{
 				auto& enemy = *(*it1);
 				if(!enemy.IsDead())
 				{
 					enemy.Update();
-					if(!tank.ui.world_shield.isEnd()) // Защитное поле
+					if(!tank.ui.world_shield.isEnd()) // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
 					{
-						 // Если враг столкнулся с защитным полем
+						 // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 						if(GetCollisionCircle(tank.ui.world_shield.shpShield[0], enemy.shape) && !enemy.isBoss)
 						{
 							vec_FloatText.push_back(make_shared<FloatText>(FloatText(enemy.shape.getPosition(),1.f, "Absorb!", 1200, sf::Color::White)));
@@ -616,10 +616,10 @@ public:
 						}
 					}
 
-					for(auto& it2 = tank.vec_Missle.begin(); it2 != tank.vec_Missle.end();) // Пули танка
+					for(auto it2 = tank.vec_Missle.begin(); it2 != tank.vec_Missle.end();) // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 					{
 						auto& missle = *(*it2);
-						// Если пуля танка попала во врага
+						// пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 						if(GetCollisionCircle(missle.shape, enemy.shape) && (enemy.name != "trb1" || enemy.name != "trb2" || enemy.name != "trb3" || enemy.name != "trb4" || enemy.name != "trb5"))
 						{
 							enemy.Damage(tank.GetDamage(), 1000);
@@ -630,14 +630,14 @@ public:
 							{
 								it2 = tank.vec_Missle.erase(it2);
 							}
-							else // Если активен сплеш рикошет
+							else // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 							{
 								missle.setAngle(GetAngle(enemy.shape, missle.shape));
 								missle.Update();
 								vec_Splash_Ricochet.push_back(make_shared<Bang_Ricochet>(Bang_Ricochet(enemy.shape.getPosition(), v2f(15,15), 22.5)));
 								for(auto& ricochet : vec_Splash_Ricochet)
 								{
-									// Если враг оказался в зоне поражения взрыва
+									// пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 									for(auto& enemy2 : vec_Enemy)
 									{
 										if(GetCollisionCircle(ricochet->shape[0], enemy2->shape))
@@ -654,14 +654,14 @@ public:
 						else it2++;
 					}
 
-					// Если вражеский корабль врезался в планету
+					// пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 					if(GetCollisionCircle(tank.shpPlanet, enemy.shape))
 					{
 						enemy.Damage(99999);
 						tank.ui.people.Kill(enemy.GetMaxHp() * 2);
 						vec_FloatText.push_back(make_shared<FloatText>(FloatText(tank.shpPlanet.getPosition(),2.25f, to_string(int(enemy.GetMaxHp()) * 2) + "!", 2500, sf::Color::Red)));
 					}
-					// Если вражеский корабль врезался в танк
+					// пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ
 					if(GetCollisionCircle(tank.shpWheel, enemy.shape))
 					{
 						enemy.Damage(99999);
@@ -670,7 +670,7 @@ public:
 						vec_Effect_Tank_Damage.push_back(make_shared<Effect_Tank_Damage>(Effect_Tank_Damage(tank.shpWheel.getPosition())));
 					}
 
-					// Враг атакует
+					// пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 					if(enemy.IsAttack())
 					{
 						// Shootings
@@ -687,7 +687,7 @@ public:
 						else if(enemy.name == "shB2") vec_Enemy_Missle.push_back(make_shared<Missle>(Missle(GetNormalizedPosition(enemy.shape, enemy.shape.getSize().y/1.75f, enemy.shape.getRotation()), v2f(8,3.1), 0.031f, GetAngle(enemy.shape, tank.shpPlanet), texture->MissleT[3], 72, true)));
 						else if(enemy.name == "shB3") vec_Enemy_Missle.push_back(make_shared<Missle_Lighting_Ball>(Missle_Lighting_Ball(GetNormalizedPosition(enemy.shape, enemy.shape.getSize().y/1.75f, enemy.shape.getRotation()), v2f(10,10), 0.033f, GetAngle(enemy.shape, tank.shpPlanet), texture->MissleT[15], 96, true)));
 
-						// Обыкновенные транспортёры запускают камикадзе
+						// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 						typedef Enemy_Kamikadze KA;
 						const v2f& epos = enemy.shape.getPosition();
 
@@ -697,7 +697,7 @@ public:
 						else if(enemy.name == "tr04") { vec_Enemy.emplace_back(make_shared<KA>(KA(epos, v2f(8,4),	enemy.GetSpeed(), 38, 7, texture->Kamikadze[3], "ka04")));		break;}
 						else if(enemy.name == "tr05") { vec_Enemy.emplace_back(make_shared<KA>(KA(epos, v2f(9,4.5),enemy.GetSpeed(), 54, 9, texture->Kamikadze[4], "ka05")));		break;}
 																																												
-						// Транспортёр на боссе выпускает камикадзе																												
+						// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ																												
 						else if(enemy.name == "trb1" && rand()%100 <  6) { vec_Enemy.emplace_back(make_shared<KA>(KA(epos, v2f(5,5), 0.00, 10, 3, texture->Boss_03[0], "kab1")));	break;}
 						else if(enemy.name == "trb2" && rand()%100 <  7) { vec_Enemy.emplace_back(make_shared<KA>(KA(epos, v2f(6,6), 0.00, 18, 5, texture->Boss_03[1], "kab2")));	break;}
 						else if(enemy.name == "trb3" && rand()%100 <  8) { vec_Enemy.emplace_back(make_shared<KA>(KA(epos, v2f(7,7), 0.00, 30, 8, texture->Boss_03[2], "kab3")));	break;}
@@ -710,12 +710,12 @@ public:
 				}
 				else
 				{
-					// Создаём взрыв от смерти врага
+					// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 					const short num_flare = rand()%5+4;
 					for(int i = 0; i < num_flare; i++) vec_Flare.push_back(make_shared<Flare>(Flare(enemy.shape.getPosition(), enemy.shape.getSize().x/4.f, 2000, 0.008, texture->EFF_Flare)));
 					vec_Bang.push_back(make_shared<Bang_Asteroid>(Bang_Asteroid(enemy.shape.getPosition(), GetAngle(tank.shpWheel, enemy.shape), 1600, enemy.GetSizeBang()/1.5)));
 					
-					// Создаём осколки от взрыва враза
+					// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 					if(!tank.ui.fragment_explosion.isEnd())
 					{
 						const float angle = 360/(tank.ui.fragment_explosion.getLevel()+6);
@@ -730,11 +730,11 @@ public:
 				}
 			}
 
-			// Вражеские пули
-			for(auto& it = vec_Enemy_Missle.begin(); it != vec_Enemy_Missle.end();)
+			// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
+			for(auto it = vec_Enemy_Missle.begin(); it != vec_Enemy_Missle.end();)
 			{
 				auto& missle = *(*it);
-				// Попадание вражеской пули в планету
+				// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 				if(GetCollisionCircle(missle.shape, tank.shpPlanet))
 				{
 					tank.ui.people.Kill(missle.getDamage() / 2);
@@ -743,7 +743,7 @@ public:
 					it = vec_Enemy_Missle.erase(it);
 				}
 
-				// Попадание вражеской пули в танк
+				// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅ
 				else if(GetCollisionCircle(missle.shape, tank.shpWheel))
 				{
 					tank.ui.hit_point.Damage(missle.getDamage());
@@ -751,7 +751,7 @@ public:
 					vec_Bang.push_back(make_shared<Bang_Damage>(Bang_Damage(missle.shape.getPosition(), GetAngle(missle.shape, tank.shpPlanet), 500, 1)));
 					it = vec_Enemy_Missle.erase(it);
 				}
-				// Попадание вражеской пули в силовое поле
+				// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ
 				else if(!tank.ui.world_shield.isEnd() && GetCollisionCircle(missle.shape, tank.ui.world_shield.shpShield[0]))
 				{
 					vec_FloatText.push_back(make_shared<FloatText>(FloatText(missle.shape.getPosition(),0.65f, "Absorb!", 1000, sf::Color::White)));
@@ -765,8 +765,8 @@ public:
 				}
 			}
 
-			// Апдейтим все взрывы
-			for(auto& it = vec_Bang.begin(); it != vec_Bang.end();)
+			// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
+			for(auto it = vec_Bang.begin(); it != vec_Bang.end();)
 			{
 				auto& bang = *(*it);
 				if(!bang.IsEnd())
@@ -780,8 +780,8 @@ public:
 				}
 			}
 
-			// Апдейтим эффект урона по танку
-			for(auto &it = vec_Effect_Tank_Damage.begin(); it != vec_Effect_Tank_Damage.end();)
+			// пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
+			for(auto it = vec_Effect_Tank_Damage.begin(); it != vec_Effect_Tank_Damage.end();)
 			{
 				Effect_Tank_Damage &effect = *(*it);
 				if(!effect.IsEnd())
@@ -856,7 +856,7 @@ public:
 		for(auto& bonus: vec_Bonus) bonus->Draw();
 		for(auto& enemy_missle: vec_Enemy_Missle) enemy_missle->Draw();
 		
-		for(auto& it = vec_FloatText.begin(); it != vec_FloatText.end();)
+		for(auto it = vec_FloatText.begin(); it != vec_FloatText.end();)
 		{
 			FloatText& FText = *(*it);
 			if(FText.IsEnd())
@@ -871,7 +871,7 @@ public:
 			}
 		}
 
-		/////////////////////// Поворот
+		/////////////////////// пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 		float angle = cam.getRotation();
 		v2f pos = cam.getCenter();
 		cam.setCenter(0,0);
