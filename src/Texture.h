@@ -279,7 +279,7 @@ public:
 		Load ( UI_Bar_x2,				"UI/Bar_x2.png");
 		Load ( UI_HP_Line,				"UI/HPLine.png");
 		Load ( UI_Energy_Line,			"UI/EnergyLine.png");
-		Load ( UI_EXP_Line,				"UI/EXPLine.png");
+		Load ( UI_EXP_Line,				"UI/ExpLine.png");
 		Load ( UI_People,				"UI/People.png");
 		Load ( UI_Chance_Drop,			"UI/Chance_Drop.png");
 		Load ( UI_Button_Upgrade,		"UI/Button_Upgrade.png");
@@ -311,11 +311,15 @@ public:
 		{
 			const int c = i+1;
 
-			Load ( Bonus_HP[i],						"Bonus/Bonus_HP"+to_string(c)+".png" );
-			Load ( Bonus_Energy[i],					"Bonus/Bonus_Energy"+to_string(c)+".png" );
+			if (c < 3)
+			{
+				Load ( Bonus_HP[i],						"Bonus/Bonus_HP"+to_string(c)+".png" );
+				Load ( Bonus_Energy[i],					"Bonus/Bonus_Energy"+to_string(c)+".png" );
+				Load ( Bonus_Experience[i],				"Bonus/Bonus_Experience"+to_string(c)+".png" );
+			}
+
 			Load ( Bonus_Power[i],					"Bonus/Bonus_Power"+to_string(c)+".png" );
 			Load ( Bonus_Shock[i],					"Bonus/Bonus_Shock"+to_string(c)+".png" );
-			Load ( Bonus_Experience[i],				"Bonus/Bonus_Experience"+to_string(c)+".png" );
 			Load ( Bonus_Multiple[i],				"Bonus/Bonus_Multiple"+to_string(c)+".png" );
 			Load ( Bonus_Fragment_Explosion[i],		"Bonus/Bonus_Fragment_Explosion"+to_string(c)+".png" );
 			Load ( Bonus_Slow[i],					"Bonus/Bonus_Slow"+to_string(c)+".png" );
@@ -354,7 +358,7 @@ public:
 
 		for(int i = 0; i < 10; i++)
 		{
-			Load ( BG_Star[i], "BackGround/star" + to_string(i+1) + ".png");
+			Load ( BG_Star[i], "BackGround/Star" + to_string(i+1) + ".png");
 		}
 
 		Load(Universe1,			"BackGround/Universe1.png");

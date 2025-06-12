@@ -18,9 +18,9 @@
 #include <cstdio>
 #include <memory>
 #include <cmath>
-#include <SFML\Audio.hpp>
-#include <SFML\Graphics.hpp>
-#include <Windows.h>
+
+#include <SFML/Audio.hpp>
+#include <SFML/Graphics.hpp>
 
 class System;
 
@@ -28,10 +28,7 @@ using std::cout;
 using std::endl;
 using std::to_string;
 using std::cos; 
-using std::cosf;
 using std::sin;
-using std::sinf;
-using std::atanf;
 using std::make_shared;
 
 using std::vector;

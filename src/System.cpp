@@ -46,19 +46,19 @@ void System::SystemTime()
 
 v2f System::GetNormalizedPosition(const v2f& pos, float dist, float angle)
 {
-	const float& A = angle * RAD;
+	const float A = angle * RAD;
 	return pos + v2f(cosf(A),sinf(A))*dist;
 }
 
 v2f System::GetNormalizedPosition(Shape& shape, float dist, float angle)
 {
-	const float& A = angle * RAD;
+	const float A = angle * RAD;
 	return shape.getPosition() + v2f(cosf(A),sinf(A))*dist;
 }
 
 void System::MoveToAngle(Shape &shape, float speed, float angle, bool is_Enemy_Time)
 {
-	const float& A = angle * RAD;
+	const float A = angle * RAD;
 	const float S = speed * scr_1;
 	if(is_Enemy_Time) shape.move(v2f(cosf(A),sinf(A)) * (S * time_enemy)); 
 	else shape.move(v2f(cosf(A),sinf(A)) * (S * time)); 
@@ -66,8 +66,8 @@ void System::MoveToAngle(Shape &shape, float speed, float angle, bool is_Enemy_T
 
 void System::MoveToAngle(v2f& point, float speed, float angle, bool is_Enemy_Time)
 {
-	const float& A = angle * RAD;
-	const float& S = speed * scr_1;
+	const float A = angle * RAD;
+	const float S = speed * scr_1;
 	if(is_Enemy_Time) point += v2f(cosf(A),sinf(A)) * (S * time_enemy);
 	else point += v2f(cosf(A),sinf(A)) * (S * time);
 }
@@ -170,7 +170,7 @@ float System::sine(float angle)
             table[i] = sin(static_cast<float>(i) * DEGTORAD);
     }
     
-    return table[static_cast<std::size_t>(angle)];
+    return table[static_cast<size_t>(angle)];
 }
 
 float System::cosine(float angle)
@@ -185,7 +185,7 @@ float System::cosine(float angle)
             table[i] = cos(static_cast<float>(i) * DEGTORAD);
     }
 
-    return table[static_cast<std::size_t>(angle)];
+    return table[static_cast<size_t>(angle)];
 }
 
 void System::setSpriteSize(sf::Sprite& sprite, float width, float height)
@@ -244,7 +244,8 @@ System::System(bool init)
 		cur_p = v2f(0,0);
 		wnd->setView(cam);
 		wnd->setMouseCursorVisible(false);
-//		wnd->setFramerateLimit(60); // Release fps = ~640
+//		wnd->setFramerateLimit(60); // Release fps = ~640, now 920 after thread removing
+//		wnd->setVerticalSyncEnabled(true);
 		srand(::time(0));
 		clock.restart();
 	}

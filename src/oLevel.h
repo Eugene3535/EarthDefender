@@ -31,14 +31,14 @@ private:
 
 public:
 
-	LevelName(USHORT n1, USHORT n2) : timer_preview(7500), timer_create(0)
+	LevelName(int n1, int n2) : timer_preview(7500), timer_create(0)
 	{
 		ConstructShape(shpLevel, v2f(0,0), v2f(65,13), texture->UI_Text_Level);
 		ConstructShape(shpNum[0], v2f(40,0), v2f(16,16), texture->UI_Num[n1]);
 		ConstructShape(shpNum[1], v2f(49,0), v2f(16,16), texture->UI_Num[n2]);
 	}
 
-	LevelName(USHORT n1) : timer_preview(7500), timer_create(0)
+	LevelName(int n1) : timer_preview(7500), timer_create(0)
 	{
 		ConstructShape(shpLevel, v2f(0,0), v2f(65,13), texture->UI_Text_Level);
 		ConstructShape(shpNum[0], v2f(40,0), v2f(16,16), texture->UI_Num[n1]);

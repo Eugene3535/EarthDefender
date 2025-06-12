@@ -2,8 +2,6 @@
 #include "Level_01.h"
 #include "Main_Menu.h"
 #include <chrono>
-#include<thread>
-#include<mutex>
 
 class Game : public System
 {
@@ -22,44 +20,15 @@ public:
 		vec_MainMenu.push_back(make_shared<Main_Menu>(Main_Menu()));
 		time = 0;
 		wnd->setActive(false);
-		//thread = new sf::Thread(&Game :: Thread, this);
-		//thread->launch();
 
 		Thread();
-
-		// while (wnd->isOpen())
-		// {
-		// 	while(wnd->pollEvent(event))
-		// 	{
-		// 		if(event.type == sf::Event::Closed) wnd->close();
-
-		// 		switch (gState)
-		// 		{
-		// 			case System::main_menu:
-
-		// 				for(auto menu: vec_MainMenu) menu->Action();
-
-		// 				break;
-
-		// 			case System::game:
-
-		// 				if(!vec_MainMenu.empty()) vec_MainMenu.clear();
-		// 				for(auto level: vec_Level) level->Action(); 
-
-		// 				break;
-		// 		}
-		// 	}
-		// 	sf::sleep(sf::milliseconds(50));
-		// }
-
-		//thread->terminate();
 	}
 
 	void Thread()
 	{
 		sf::Text text_fps;
 		int counter_frame = 0;
-		float timer = 0;
+		int timer = 0;
 
 		while (wnd->isOpen())
 		{
@@ -86,12 +55,12 @@ public:
 
 			cur_p = wnd->mapPixelToCoords(sf::Mouse::getPosition(*wnd));
 			SystemTime();
-			timer+=time;
+			timer += time;
 			counter_frame++;
 
-			if(timer >= 250)
+			if (timer > 250)
 			{
-				ConstructText(text_fps, v2f(0,0),1.5, sf::String(to_string(counter_frame*4)), font_freshman, sf::Color::Green);
+				ConstructText(text_fps, v2f(0, 0), 1.5, sf::String(to_string(counter_frame * 4)), font_freshman, sf::Color::Green);
 				timer = 0;
 				counter_frame = 0;
 			}

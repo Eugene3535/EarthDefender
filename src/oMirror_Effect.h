@@ -13,7 +13,7 @@ public:
 	virtual void Draw() = 0;
 };
 
-// Эффект для одного шейпа. БЕЗ ВРАЩЕНИЯ.
+// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ. пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.
 class Mirror_Effect_One_No_Rot : public oMirror_Effect
 {
 protected:
@@ -53,13 +53,13 @@ public:
 		wnd->draw(shape);
 	}
 
-	virtual ~Mirror_Effect_One_No_Rot(void)
+	virtual ~Mirror_Effect_One_No_Rot()
 	{
 
 	}
 };
 
-// Эффект для одного шейпа. С ВРАЩЕНИЕМ.
+// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ. пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ.
 class Mirror_Effect_One_Yes_Rot : public oMirror_Effect
 {
 protected:

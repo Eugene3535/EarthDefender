@@ -1,5 +1,5 @@
 #pragma once
-#include <SFML\Audio.hpp>
+#include <SFML/Audio.hpp>
 typedef sf::SoundBuffer Buff;
 typedef unsigned int uint;
 using namespace std;
@@ -31,7 +31,7 @@ public:
 
 	Audio(void)
 	{
-		LoadSound("000testSound.wav", testSound, testBuff);
+		// LoadSound("000testSound.wav", testSound, testBuff);
 
 		LoadMusic("RWG - Starfall.ogg", music_main_menu);
 		LoadMusic("RWG - Arcade.ogg", music_game[0]);

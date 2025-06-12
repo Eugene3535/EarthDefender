@@ -17,7 +17,7 @@ public:
 	{
 	}
 
-	virtual void setParam(v2f pos, sf::String str)
+	virtual void setParam(v2f pos, const sf::String& str)
 	{
 		ConstructText(text, v2f(0, (37*scr_1)), 1.75, str, font_freshman, sf::Color::Yellow);
 		ConstructShape(shape, v2f(0, (37*scr_1)), (v2f(text.getGlobalBounds().width+(scr_1*2), text.getGlobalBounds().height+(scr_1*2))/scr_1), texture->UI_Bar, false);
@@ -213,7 +213,8 @@ public:
 	virtual void Update()
 	{
 		std::string str;
-		for(int i = 0; i < 4; i++) str.push_back(to_string(duration/1000)[i]);
+		for (int i = 0; i < 4; i++)
+			str.push_back(to_string(duration / 1000)[i]);
 
 		ConstructText(text_time, v2f(shpIco.getPosition().x, shpIco.getPosition().y - (7.f*scr_1)), 2.0, str, font_freshman, sf::Color::White);
 		shpPlato.rotate(0.03*time);
